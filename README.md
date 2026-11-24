@@ -1,38 +1,74 @@
-# CureBridge: Dual-Portal Healthcare Stage Assessment, Natural Dietary Care & Specialist Bridge
+# CureBridge
 
-**Author:** [Ateeq Wahlan](https://wahlanos.com) ([GitHub](https://github.com/ateeq-wahlan))
+**Dual-Portal Cognitive Clinical Triage, Biomarker-Mapped Dietary Care & Local Specialist Bridge**
 
-CureBridge is a dual-portal clinical triage, natural dietary recovery, and local specialist bridge platform. It helps patients understand early physiological strain across 5 health domains, provides **100% non-pharmacological dietary and physical care routines** for reversible early stages, and connects patients with verified nearby doctors using Haversine geospatial distance filtering.
+[[https://img.shields.io/badge/LIVE_DEMO-Launch_CureBridge-15803D?style=for-the-badge]](https://ateeq-wahlan.github.io/CureBridge/)
+[[https://img.shields.io/badge/Author-Ateeq_Wahlan-0F172A?style=for-the-badge]](https://wahlanos.com)
+[[https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge]](https://github.com/ateeq-wahlan)
 
-## Key Architectural Highlights
+**Author:** [Ateeq Wahlan](https://wahlanos.com) | **GitHub:** [ateeq-wahlan](https://github.com/ateeq-wahlan)
 
-1. **Strict Two-Color Portal Palettes (Dark & Light Mode Ready)**:
-   - **Patient Care Portal**: Forest Green (`#15803D` / `#22C55E`) and Warm Cream (`#F5F2EA` / `#0F1712`).
-   - **Specialist Doctor Portal**: Dusky Purple (`#634B82` / `#9D84C7`) and Charcoal (`#131218` / `#F2F0F6`).
-2. **Minimalist Two-Color Biometric Canvas**:
-   - Features 5 organ/vital indicators (`O2`, `HEART`, `BP`, `LUNGS`, `LIVER`) and 2 top/upper-middle ECG pulse waves that smoothly transition direction and palette when toggling between Patient and Doctor portals without intrusive pop-ups.
-3. **Compact Classical Official Login & Adaptive Sticky Header**:
-   - Validates Full Name and Official Email Address before entry, displaying an inline error banner if required fields are missing.
-   - Once logged in, the portal switcher vanishes and the header freezes at the top with `CureBridge` on the left and Theme Toggle, Active User Session, and Logout on the right.
-4. **Flexible Collapsible Sidebar & Locked vs. Live Predictor Modes**:
-   - Includes a collapsible left sidebar (`248px` expanded to `68px` compact rail).
-   - Locks baseline clinical inputs on verified existing patient profiles (`CB-101` to `CB-105` spanning Stage 1, Stage 2, and Stage 3) while providing a 1-click **New Patient Predictor** mode that unlocks all 15 inputs for live inference.
+## Project Concept
 
-## Trusted Global Public Clinical Datasets Referenced
+Most people ignore early physiological warning signs until a reversible condition escalates into an emergency, or they rely on generic internet searches that offer vague, uncalibrated advice. **CureBridge** bridges the gap between early self-assessment and timely specialist care through a dual-portal workflow:
 
-| Clinical Domain | Public Benchmark Dataset & Repository | Key Biomarkers & Clinical Features | Verified Reference |
-| :--- | :--- | :--- | :--- |
-| **Metabolic & Blood Sugar Balance** | NIDDK Pima Indians Diabetes & UCI Early-Stage Diabetes Risk Prediction Dataset (ESDRPD) | Fasting Blood Sugar (mg/dL), BMI, Age, Excess Thirst (Polydipsia), Daytime Fatigue | [JPMS / UCI Benchmark Study](https://jpmsonline.com/article/a-differentiable-hybrid-classical-quantum-circuit-with-pca-feature-compression-for-medical-disease-classification-in-healthcare-datasets-1205/) |
-| **Cardiovascular & Blood Pressure** | UCI Cleveland Heart Disease & Heart Failure Clinical Records Dataset | Resting Systolic Blood Pressure (mmHg), Chest Tightness/Pressure, Exertional Dyspnea, Age | [NIH PMC / UCI Heart Disease Benchmark](https://pmc.ncbi.nlm.nih.gov/articles/PMC12614364/) |
-| **Digestive & Gut-Liver Health** | UCI Indian Liver Patient Dataset (ILPD - 583 Clinical Records) | Acid Reflux & Post-Meal Bloating, Bowel Irregularity, BMI, Symptom Persistence | [Frontiers in Medicine ILPD Analysis](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1502749/full) |
-| **Respiratory & Airway Health** | UCI Pulmonary & Clinical Pulse Oximetry Triage Cohort | Blood Oxygen Saturation (SpO2 %), Persistent Cough/Wheeze, Breath Shortness, Symptom Weeks | [CMES Biomedical Benchmark Profiling](https://www.sciopen.com/article/10.32604/cmes.2026.082841) |
-| **Confidential Intimate & Urinary Wellness** | UCI Urological & Outpatient Reproductive-Endocrine Triage Criteria | Urinary Frequency or Discomfort, Pelvic/Hormonal Strain, Sleep Quality, Symptom Duration | [IJEAIS Clinical Dataset Survey](http://ijeais.org/wp-content/uploads/2026/7/IJEAIS260708.pdf) |
+- **Patient Care Portal:** Evaluates vitals, symptom patterns, and duration across 5 clinical domains, delivers a structured drug-free dietary and physical recovery plan for reversible stages, and generates a pre-consultation clinical dossier.
+- **Specialist Doctor Portal:** Receives structured patient dossiers with predicted domain probabilities, severity stage, and baseline readings so clinicians can review, approve appointments, and add follow-up clinical notes.
 
-## Quick Start
+## Cognitive Computing & Clinical Prediction Pipeline
 
-- **Zero-Server Browser Mode**: Open `index.html` (or `CureBridge_Healthcare_System.html`) directly in any modern browser.
-- **Flask API Mode**:
-  ```bash
-  pip install -r requirements.txt
-  python3 app.py
-  ```
+CureBridge runs a deterministic, explainable two-layer cognitive inference engine (`curebridge_engine.py`) backed by serialized model parameters (`model.pkl` and `static/curebridge_ml_artifacts.json`) so identical predictions run both in the Python/Flask REST API and client-side in the browser.
+
+### 1. 15-Feature Clinical Input Vector & Preprocessing
+Every assessment encodes 15 structured signals:
+- **6 Continuous Physiological Vitals:** Age, BMI, Resting Systolic Blood Pressure (`mmHg`), Fasting Blood Sugar (`mg/dL`), Blood Oxygen Saturation (`SpO2 %`), and Daily Sleep Duration (`hours`).
+- **8 Domain Symptom Intensity Scores:** Cough/wheeze, exertional breath shortness, chest pressure, excess thirst/fatigue, acid reflux/bloating, bowel irregularity, urinary discomfort, and pelvic/hormonal strain.
+- **1 Temporal Persistence Feature:** Symptom duration in weeks.
+
+All 15 features are standardized via Z-score normalization (`(x - mean) / scale`) using training-cohort parameters before inference.
+
+### 2. Data Stratification & Class Balance Strategy
+Clinical triage datasets naturally skew toward mild outpatient cases while high-acuity Stage 3 cases form a minority class. The training cohort (`curebridge_clinical_cohort.csv`, 500 clinical profiles) is intentionally stratified across all three clinical stages so every tier receives balanced gradient updates during training:
+- **Stage 1 (Early & Naturally Reversible):** 180 records
+- **Stage 2 (Moderate & Reversible With Care):** 210 records
+- **Stage 3 (Priority Specialist Consultation):** 110 records
+
+*Scaling Note:* Because this curated cohort is already balanced via stratified sampling, synthetic oversampling (SMOTE) was not required to prevent minority-class collapse. When retraining CureBridge on raw, heavily imbalanced hospital EHR logs, applying **SMOTE** (Synthetic Minority Over-sampling Technique) or inverse class-frequency weighting prior to `StandardScaler` fitting is recommended.
+
+### 3. Two-Layer Inference & Model Benchmarks
+- **Layer 1 (Multi-Class Domain Classification):** Computes standardized linear logits (`W_cond @ x_s + b_cond`) and numerically stable Softmax probabilities across all 5 health domains (Metabolic, Cardiovascular, Digestive/Gut-Liver, Respiratory, and Confidential Intimate/Urinary Wellness).
+  - *Logistic Regression (Interpretable Baseline):* `99.4%` Macro-F1 | `0.9885` OvR ROC-AUC
+  - *Random Forest Classifier (180 Trees):* `97.5%` Accuracy | `0.9924` OvR ROC-AUC
+  - *Gradient Boosting Ensemble (Production Benchmark):* `98.2%` Accuracy | `0.981` Macro-F1 | `0.9961` OvR ROC-AUC
+- **Layer 2 (Physiological Strain & Stage Escalation):** Combines clinical vital thresholds (`SpO2 <= 93%`, `Systolic BP >= 155 mmHg`, `Fasting Sugar >= 150 mg/dL`, `BMI >= 31.0`), peak symptom intensity, and duration persistence into a normalized `0.0 - 9.9` Severity Index (`99.0%` stage accuracy):
+  - **Stage 0 (Baseline):** Minimal vital strain and zero active symptoms.
+  - **Stage 1 (`< 3.8`):** Early physiological strain, reversible through targeted dietary and physical routines.
+  - **Stage 2 (`3.8 - 6.7`):** Moderate strain requiring structured non-pharmacological care plus scheduled doctor review.
+  - **Stage 3 (`>= 6.8`):** High clinical strain triggering immediate specialist escalation.
+
+## How Evidence-Mapped Dietary & Physical Care Works
+
+Rather than displaying generic wellness slogans, CureBridge maps **100% drug-free dietary and physical protocols directly to the predicted physiological domain and biomarker drivers**:
+
+- **Metabolic & Blood Sugar Strain:** Targets post-prandial glucose spikes with fiber-first, low-glycemic meal sequencing (leafy greens, lentils, whole grains) paired with a 15-minute post-meal walk so skeletal muscle uptake lowers blood glucose naturally.
+- **Cardiovascular & Blood Pressure Strain:** Focuses on vascular tension reduction using low-sodium, potassium-rich daily meal structure, hydration pacing, and morning/evening blood pressure tracking.
+- **Digestive & Gut-Liver Strain:** Addresses upper-GI irritation and sluggish lipid clearance through low-acid, low-oil meal timing, avoiding late-night heavy meals, and upright post-meal posture with gentle walking.
+- **Respiratory & Airway Strain:** Pairs warm anti-inflammatory hydration and irritant avoidance with controlled diaphragmatic breathing and pulse-oximetry monitoring.
+- **Confidential Intimate & Urinary Wellness:** Maps hydration cadence, low-glycemic anti-inflammatory nutrition, and sleep-cycle recovery while preserving privacy in the pre-consultation dossier.
+
+For **Stage 2 and Stage 3** cases, the **Haversine Geospatial Specialist Bridge** (`CureBridgeEngine.haversine_km`) computes great-circle distance from patient coordinates to rank verified local specialists by clinical domain and proximity.
+
+## Repository Structure
+
+```text
+CureBridge/
+├── index.html                          # Standalone dual-portal web application (GitHub Pages entry)
+├── app.py                              # Flask web server & POST /api/predict REST API
+├── curebridge_engine.py                # Two-layer clinical triage & Haversine distance engine
+├── CureBridge_ML_Notebook.ipynb        # Model exploration & cohort verification notebook
+├── curebridge_clinical_cohort.csv      # Stratified 500-patient clinical triage dataset
+├── model.pkl                           # Serialized scaler & model weights for Python inference
+├── static/curebridge_ml_artifacts.json # Browser-ready model weights & benchmark metrics
+├── templates/index.html                # Flask template view
+├── requirements.txt                    # Python dependencies (Flask, NumPy, Pandas, Scikit-Learn)
+└── .github/workflows/deploy-pages.yml  # Automated GitHub Pages CI/CD deployment
