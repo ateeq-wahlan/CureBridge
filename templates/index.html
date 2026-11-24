@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-portal="patient">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CureBridge | Smart Patient-to-Doctor Health Understanding, Natural Dietary Care &amp; Local Specialist System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =======================================================================
+       STRICT TWO-COLOR PALETTES PER PORTAL (FOREST GREEN & CREAM / DUSKY PURPLE & CHARCOAL)
+       Compatible with both Dark Mode and Light Mode
+       ======================================================================= */
+
+    /* PATIENT PORTAL - DARK MODE (Forest Green & Warm Cream on Deep Forest-Charcoal) */
+    :root,
+    html[data-portal="patient"][data-theme="dark"] {
+      --bg-canvas: #0E1511;
+      --bg-surface: #141F19;
+      --bg-elevated: #1A2820;
+      --bg-subtle: #22352A;
+      --bg-glass: rgba(20, 31, 25, 0.90);
+      --text-primary: #F5F2EA;
+      --text-secondary: #D0CBB8;
+      --text-muted: #9A9686;
+      --border-line: rgba(245, 242, 234, 0.13);
+      --border-strong: rgba(34, 197, 94, 0.38);
+      --accent: #22C55E;
+      --accent-hover: #16A34A;
+      --accent-text: #0A110D;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --stage-1: #22C55E;
+      --stage-1-bg: rgba(34, 197, 94, 0.15);
+      --stage-2: #EAB308;
+      --stage-2-bg: rgba(234, 179, 8, 0.15);
+      --stage-3: #F5F2EA;
+      --stage-3-bg: rgba(245, 242, 234, 0.16);
+      --canvas-c1: rgba(34, 197, 94, 0.24);
+      --canvas-c2: rgba(245, 242, 234, 0.16);
+      --shadow-card: 0 14px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    /* PATIENT PORTAL - LIGHT MODE (Warm Cream & Forest Green) */
+    html[data-portal="patient"][data-theme="light"] {
+      --bg-canvas: #F5F2EA;
+      --bg-surface: #FFFFFF;
+      --bg-elevated: #ECE7DA;
+      --bg-subtle: #DFD9C8;
+      --bg-glass: rgba(255, 255, 255, 0.92);
+      --text-primary: #122017;
+      --text-secondary: #2F4436;
+      --text-muted: #5C7062;
+      --border-line: rgba(18, 32, 23, 0.13);
+      --border-strong: rgba(21, 128, 61, 0.36);
+      --accent: #15803D;
+      --accent-hover: #166534;
+      --accent-text: #F5F2EA;
+      --accent-soft: rgba(21, 128, 61, 0.11);
+      --stage-1: #15803D;
+      --stage-1-bg: rgba(21, 128, 61, 0.13);
+      --stage-2: #B45309;
+      --stage-2-bg: rgba(180, 83, 9, 0.12);
+      --stage-3: #122017;
+      --stage-3-bg: rgba(18, 32, 23, 0.12);
+      --canvas-c1: rgba(21, 128, 61, 0.22);
+      --canvas-c2: rgba(47, 68, 54, 0.14);
+      --shadow-card: 0 10px 26px rgba(18, 32, 23, 0.07);
+    }
+
+    /* DOCTOR PORTAL - DARK MODE (Dusky Purple & Charcoal) */
+    html[data-portal="doctor"][data-theme="dark"] {
+      --bg-canvas: #131218;
+      --bg-surface: #1B1923;
+      --bg-elevated: #23202E;
+      --bg-subtle: #2D293B;
+      --bg-glass: rgba(27, 25, 35, 0.90);
+      --text-primary: #F2EFF7;
+      --text-secondary: #C8C1D6;
+      --text-muted: #938BA6;
+      --border-line: rgba(242, 239, 247, 0.13);
+      --border-strong: rgba(157, 132, 199, 0.38);
+      --accent: #9D84C7;
+      --accent-hover: #866BB5;
+      --accent-text: #131218;
+      --accent-soft: rgba(157, 132, 199, 0.16);
+      --stage-1: #9D84C7;
+      --stage-1-bg: rgba(157, 132, 199, 0.16);
+      --stage-2: #C8C1D6;
+      --stage-2-bg: rgba(200, 193, 214, 0.15);
+      --stage-3: #F2EFF7;
+      --stage-3-bg: rgba(242, 239, 247, 0.18);
+      --canvas-c1: rgba(157, 132, 199, 0.25);
+      --canvas-c2: rgba(200, 193, 214, 0.15);
+      --shadow-card: 0 14px 36px rgba(0, 0, 0, 0.50);
+    }
+
+    /* DOCTOR PORTAL - LIGHT MODE (Dusky Purple & Soft Charcoal Alabaster) */
+    html[data-portal="doctor"][data-theme="light"] {
+      --bg-canvas: #F2F0F6;
+      --bg-surface: #FFFFFF;
+      --bg-elevated: #E7E3EF;
+      --bg-subtle: #D9D3E6;
+      --bg-glass: rgba(255, 255, 255, 0.93);
+      --text-primary: #1A1823;
+      --text-secondary: #3A344B;
+      --text-muted: #675F7A;
+      --border-line: rgba(26, 24, 35, 0.13);
+      --border-strong: rgba(99, 75, 130, 0.36);
+      --accent: #634B82;
+      --accent-hover: #4F3A6B;
+      --accent-text: #F2EFF7;
+      --accent-soft: rgba(99, 75, 130, 0.12);
+      --stage-1: #634B82;
+      --stage-1-bg: rgba(99, 75, 130, 0.13);
+      --stage-2: #3A344B;
+      --stage-2-bg: rgba(58, 52, 75, 0.12);
+      --stage-3: #1A1823;
+      --stage-3-bg: rgba(26, 24, 35, 0.14);
+      --canvas-c1: rgba(99, 75, 130, 0.22);
+      --canvas-c2: rgba(58, 52, 75, 0.14);
+      --shadow-card: 0 10px 26px rgba(26, 24, 35, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.32s ease, color 0.32s ease;
+    }
+
+    /* UNIFORM MINIMALIST BACKGROUND CANVAS (PULSES + HEART + PLUS SIGN ONLY, NO TEXT BLOCKS) */
+    #bg-anim-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* PORTAL LOADING POP-UP MODAL (ONLY TRIGGERED AFTER ACTUAL LOGIN CLICK) */
+    #portal-loading-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      background: rgba(12, 15, 14, 0.78);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    #portal-loading-modal.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .loading-modal-card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--bg-surface);
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 26px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transform: scale(0.94);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #portal-loading-modal.active .loading-modal-card {
+      transform: scale(1);
+    }
+
+    .loading-pulse-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      animation: modalPulse 1.1s infinite ease-in-out;
+    }
+
+    @keyframes modalPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .loading-modal-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .loading-modal-sub {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .loading-bar-track {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .loading-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.08s linear;
+    }
+
+    /* =======================================================================
+       ADAPTIVE SITE HEADER
+       - Landing Mode: Centered CureBridge brand + Subtitle + Patient/Doctor Pill Switcher
+       - Logged-In Mode: Frozen sticky top bar, CureBridge on left, Sun/Moon Icon + Logout Icon on right
+       ======================================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      padding: 12px 28px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.28s ease;
+    }
+
+    .header-left-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-portal-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .site-header.logged-in-freeze #header-portal-pills {
+      display: none !important;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-primary);
+      margin-bottom: 0;
+    }
+
+    .brand-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      transition: all 0.25s ease;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .brand-title span {
+      color: var(--accent);
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 13px;
+    }
+
+    /* PORTAL PILL SWITCH */
+    .portal-pill-switch {
+      display: inline-flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 6px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .portal-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .portal-pill-btn.active {
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-circle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-card);
+    }
+
+    .icon-circle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* MAIN WRAPPER */
+    .app-main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      max-width: 1320px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 14px 24px 36px;
+    }
+
+    .view-screen {
+      display: none;
+    }
+
+    .view-screen.active {
+      display: block;
+    }
+
+    /* LANDING SCREEN: 2-COLUMN LAYOUT WITH COMPACT CLASSICAL LOGIN CARD */
+    .landing-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 34px;
+      align-items: start;
+      margin-top: 6px;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-headline {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.24;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-lead {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .feature-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-line);
+      border-radius: 12px;
+      padding: 12px 15px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      box-shadow: var(--shadow-card);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-kicker {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2px 0;
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* COMPACT CLASSICAL OFFICIAL LOGIN CARD */
+    .auth-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-top: 3.5px solid var(--accent);
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+      box-shadow: var(--shadow-card);
+      max-width: 425px;
+      width: 100%;
+      margin-left: auto;
+    }
+
+    .auth-inner-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 9px;
+      padding: 4px;
+      margin-bottom: 16px;
+    }
+
+    .auth-tab-btn {
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .auth-tab-btn.active {
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    .field-block {
+      margin-bottom: 13px;
+    }
+
+    .field-block label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .input-ctrl, .select-ctrl, .textarea-ctrl {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 12px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-ctrl:focus, .select-ctrl:focus, .textarea-ctrl:focus {
+      border-color: var(--accent);
+    }
+
+    .input-ctrl:disabled, .select-ctrl:disabled {
+      opacity: 0.72;
+      cursor: not-allowed;
+    }
+
+    /* SHAKY EXCLAMATION MARK INLINE FIELD ERROR BELOW INPUT */
+    @keyframes shakeError {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .field-error-line {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      margin-top: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .field-error-line.visible {
+      display: inline-flex;
+      animation: shakeError 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    .excl-badge {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .launch-cta-btn {
+      width: 100%;
+      background: var(--accent);
+      color: var(--accent-text);
+      border: none;
+      border-radius: 9px;
+      padding: 11px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+      margin-top: 4px;
+    }
+
+    .launch-cta-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .launch-cta-btn.expanding {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 10px var(--accent-soft);
+    }
+
+    .auth-footnote {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* =======================================================================
+       FLEXIBLE COLLAPSIBLE LEFT SIDEBAR + WORKSPACE SHELL
+       - No written "NAVIGATION" heading: only the collapse logo icon at top
+       - User profile, portal heading, email, & handshake key placed at sidebar top
+       ======================================================================= */
+    .workspace-shell {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 6px;
+      transition: grid-template-columns 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .workspace-shell.collapsed {
+      grid-template-columns: 64px 1fr;
+    }
+
+    .left-sidebar {
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-line);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 76px;
+      overflow: hidden;
+      transition: padding 0.25s ease;
+    }
+
+    .workspace-shell.collapsed .left-sidebar {
+      padding: 14px 10px;
+    }
+
+    .sidebar-logo-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .workspace-shell.collapsed .sidebar-logo-row {
+      justify-content: center;
+    }
+
+    .sidebar-collapse-logo-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-collapse-logo-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .workspace-shell.collapsed .sidebar-collapsible-body {
+      display: none;
+    }
+
+    .sidebar-Compact-icons {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .workspace-shell.collapsed .sidebar-Compact-icons {
+      display: flex;
+    }
+
+    .compact-step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .compact-step-dot.active {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-color: var(--accent);
+    }
+
+    .sidebar-user-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sidebar-role-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sidebar-user-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .sidebar-user-meta {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      word-break: break-all;
+    }
+
+    .passkey-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-line);
+      border-radius: 8px;
+      padding: 7px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .passkey-code {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .sidebar-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sidebar-nav-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .sidebar-nav-btn:hover {
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+    }
+
+    .sidebar-nav-btn.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .mini-btn {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      border: 1px solid var(--border-line);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .mini-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* RIGHT CONTENT AREA */
+    .right-workspace {
+      min-width: 0;
+    }
+
+    .sub-pane {
+      display: none;
+    }
+
+    .sub-pane.active {
+      display: block;
+    }
+
+    .panel-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-line);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .panel-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .status-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .metric-tile {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 11px;
+      padding: 14px;
+    }
+
+    .metric-lbl {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .metric-val {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .metric-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 3px;
+    }
+
+    /* 3-STEP SUB-STEPPER BAR */
+    .stepper-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .step-pill {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 9px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .step-pill.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* 2-STAGE HEALTH INPUT SUB-TABS INSIDE STEP 1 */
+    .stage-input-subtabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--bg-elevated);
+      padding: 5px;
+      border-radius: 9px;
+      border: 1px solid var(--border-line);
+      margin-bottom: 14px;
+    }
+
+    .stage-subtab-btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .stage-subtab-btn.active {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .two-col-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* STAGE BADGES */
+    .stage-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+    }
+
+    .stage-1 { background: var(--stage-1-bg); color: var(--stage-1); }
+    .stage-2 { background: var(--stage-2-bg); color: var(--stage-2); }
+    .stage-3 { background: var(--stage-3-bg); color: var(--stage-3); }
+
+    /* DIETARY & NATURAL PHYSICAL RECOVERY PLAN GRID */
+    .diet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .diet-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .diet-card h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .diet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .diet-list li strong {
+      color: var(--text-primary);
+    }
+
+    /* SIMPLIFIED NEARBY DOCTORS CARDS (NO RADAR MAP, FOODRESCUE SPATIAL ENGINE) */
+    .doc-directory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .doc-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* GLOBAL HOSPITAL DOSSIER REAL WHITE PDF PAPER SHEET */
+    .pdf-viewport-frame {
+      background: #1E242B;
+      border-radius: 12px;
+      padding: 24px 18px;
+      border: 1px solid var(--border-line);
+    }
+
+    .hospital-pdf-sheet {
+      background: #FFFFFF;
+      color: #0F172A;
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      padding: 34px 38px;
+      max-width: 840px;
+      margin: 0 auto;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+    }
+
+    .pdf-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0F172A;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .pdf-box {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 13px 14px;
+      color: #1E293B;
+    }
+
+    .pdf-box-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0F172A;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 4px;
+    }
+
+    .hospital-pdf-sheet .diet-list {
+      color: #334155;
+    }
+
+    .hospital-pdf-sheet .diet-list li strong {
+      color: #0F172A;
+    }
+
+    /* UNIFIED FONT TABLES */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border-line);
+      text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    th {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      position: relative;
+      z-index: 20;
+      max-width: 1320px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px 24px 24px;
+      border-top: 1px solid var(--border-line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .site-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .toast-box {
+      position: fixed;
+      top: 72px;
+      right: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--accent);
+      color: var(--text-primary);
+      padding: 12px 16px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-card);
+      font-size: 12.5px;
+      font-weight: 600;
+      z-index: 3000;
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .toast-box.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media print {
+      #bg-anim-canvas, #portal-loading-modal, .site-header, .left-sidebar, .site-footer, .no-print {
+        display: none !important;
+      }
+      .workspace-shell {
+        grid-template-columns: 1fr !important;
+      }
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .landing-grid, .workspace-shell, .doc-directory-grid, .diet-grid, .status-metrics-row, .two-col-form, .pdf-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-header {
+        grid-template-columns: 1fr auto;
+      }
+      .header-center {
+        grid-column: 1;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .header-right {
+        grid-column: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- UNIFORM MINIMALIST BACKGROUND ANIMATION: PULSES + HEART + MEDICAL PLUS ONLY (NO WRITTEN BLOCKS) -->
+  <canvas id="bg-anim-canvas"></canvas>
+
+  <!-- PORTAL LOADING POP-UP MODAL (ONLY TRIGGERED ON ACTUAL LOGIN SUBMIT) -->
+  <div id="portal-loading-modal" aria-hidden="true">
+    <div class="loading-modal-card">
+      <div class="loading-pulse-circle">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <div class="loading-modal-title" id="loading-modal-title">Synchronizing Patient Care Portal...</div>
+      <div class="loading-modal-sub" id="loading-modal-sub">Loading condition stage assessment, natural dietary plan &amp; local specialist directory</div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FROZEN TOP HEADER: LEFT BRAND + PORTAL BADGE | CENTER PORTAL PILLS (HOME ONLY) | RIGHT SUN/MOON + LOGOUT -->
+  <header class="site-header" id="main-site-header">
+    <div class="header-left-brand">
+      <button type="button" class="brand-lockup" id="header-home-btn" title="CureBridge Home">
+        <div class="brand-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <span class="brand-title">Cure<span>Bridge</span></span>
+      </button>
+      <span class="header-portal-badge" id="header-portal-badge">Patient Care Portal</span>
+    </div>
+
+    <!-- DUAL PORTAL PILL SWITCH (VISIBLE ONLY ON HOME SCREEN) -->
+    <div class="portal-pill-switch" id="header-portal-pills" role="tablist" aria-label="Select Portal Mode">
+      <button type="button" class="portal-pill-btn active" id="pill-patient-mode">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Patient Login</span>
+      </button>
+      <button type="button" class="portal-pill-btn" id="pill-doctor-mode">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Doctor Login</span>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <!-- SUN & MOON SVG ICON TOGGLE -->
+      <button type="button" class="icon-circle-btn" id="theme-toggle-btn" title="Switch Light and Dark Mode" aria-label="Toggle Light and Dark Mode">
+        <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:none;">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg id="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- LOGOUT SVG ICON BUTTON (VISIBLE ONLY WHEN LOGGED IN) -->
+      <button type="button" class="icon-circle-btn" id="header-logout-btn" title="Log Out to Home Screen" aria-label="Log Out" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-main">
+
+    <!-- ===================================================================
+         SCREEN 01: LANDING & DUAL PORTAL AUTHENTICATION
+         =================================================================== -->
+    <section id="screen-landing" class="view-screen active">
+      <div class="landing-grid">
+        
+        <!-- LEFT COLUMN: PLAIN-LANGUAGE VALUE PROPOSITION & 4 FEATURE CARDS -->
+        <div>
+          <div class="pill-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Smart Patient-to-Doctor Health Understanding, Natural Dietary Care &amp; Local Specialist System</span>
+          </div>
+          <h1 class="hero-headline">
+            Understand what your health difficulties mean, get a natural dietary plan, and connect with nearby doctors comfortably.
+          </h1>
+          <p class="hero-lead">
+            CureBridge connects everyday patients with medical specialists. Share your symptoms, basic readings, and private personal concerns to check your condition stage, follow a 100% drug-free dietary and physical recovery plan, and find nearby specialists within your chosen km range.
+          </p>
+
+          <div class="feature-stack">
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/></svg>
+              </div>
+              <div>
+                <div class="feature-kicker">100% DRUG-FREE RECOVERY PLAN</div>
+                <div class="feature-title">Personalized Dietary &amp; Natural Physical Care</div>
+                <div class="feature-desc">Provides safe daily nutrition (morning, afternoon, and evening meals) and gentle physical movement routines for early natural recovery without prescribing medications.</div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div>
+                <div class="feature-kicker">BRIDGING SENSITIVE HEALTH BARRIERS</div>
+                <div class="feature-title">Comfortably Share Intimate or Sensitive Difficulties</div>
+                <div class="feature-desc">Many patients hesitate to discuss urinary, reproductive, pelvic, or sexual health concerns aloud. Pre-disclose them privately here so your doctor understands beforehand without awkwardness.</div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+              </div>
+              <div>
+                <div class="feature-kicker">DYNAMIC KM SPECIALIST FILTER &amp; GLOBAL HOSPITAL PDF</div>
+                <div class="feature-title">Local Doctor Discovery &amp; Instant Appointment Approval</div>
+                <div class="feature-desc">Filters verified specialists within 1.5 km, 3.0 km, 5.0 km, or 8.0 km of your neighborhood, exports a global hospital format PDF report, and lets doctors approve appointments directly.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: COMPACT CLASSICAL PATIENT OR DOCTOR LOGIN CARD -->
+        <div>
+          <!-- PATIENT AUTH CARD -->
+          <div class="auth-card" id="auth-patient-card">
+            <div class="auth-inner-tabs">
+              <button type="button" class="auth-tab-btn active" id="tab-existing-pt">Existing Patient Profile</button>
+              <button type="button" class="auth-tab-btn" id="tab-new-pt">Register New Patient</button>
+            </div>
+
+            <div class="field-block" id="existing-pt-select-wrap">
+              <label for="landing-patient-select">Select Sample Patient Profile</label>
+              <select id="landing-patient-select" class="select-ctrl">
+                <option value="CB-101">Rohan Deshmukh | 46M, Hyderabad (Early Blood Sugar &amp; Fatigue)</option>
+                <option value="CB-102">Ananya Reddy | 31F, Bengaluru (Hormonal, PCOS &amp; Private Urinary Concern)</option>
+                <option value="CB-103">Siddharth Nair | 54M, Mumbai (High Blood Pressure &amp; Chest Tightness)</option>
+                <option value="CB-104">Meera Iyer | 39F, Chennai (Chronic Acidity, Bloating &amp; Fatty Liver Sign)</option>
+                <option value="CB-105">Kabir Verma | 62M, Delhi (Persistent Cough, Wheezing &amp; Low Stamina)</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="landing-pt-name">Patient Full Name</label>
+              <input type="text" id="landing-pt-name" class="input-ctrl" value="Rohan Deshmukh" placeholder="Enter your full name" />
+              <div class="field-error-line" id="err-pt-name">
+                <span class="excl-badge">!</span>
+                <span>Please enter the patient's full name to continue.</span>
+              </div>
+            </div>
+
+            <div class="field-block">
+              <label for="landing-pt-email">Official Email Address</label>
+              <input type="email" id="landing-pt-email" class="input-ctrl" value="rohan.deshmukh@curebridge.org" placeholder="name@domain.com" />
+              <div class="field-error-line" id="err-pt-email">
+                <span class="excl-badge">!</span>
+                <span>Please enter a valid email address (e.g., patient@domain.com).</span>
+              </div>
+            </div>
+
+            <button type="button" class="launch-cta-btn" id="launch-patient-workspace-btn">
+              Launch Patient Care Workspace
+            </button>
+            <div class="auth-footnote">100% Drug-Free Dietary Guidance • Private Pre-Consultation Dossier</div>
+          </div>
+
+          <!-- DOCTOR AUTH CARD -->
+          <div class="auth-card" id="auth-doctor-card" style="display: none;">
+            <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">Authenticate Medical Practitioner Desk</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 14px;">
+              Sign in to review patient pre-visit summaries, sensitive health disclosures, stage assessments, and approve appointments.
+            </p>
+
+            <div class="field-block">
+              <label for="landing-doc-pt-select">Select Patient Case in Triage Queue</label>
+              <select id="landing-doc-pt-select" class="select-ctrl">
+                <option value="CB-101">Rohan Deshmukh (CB-101-CARE) | Blood Sugar &amp; Metabolic</option>
+                <option value="CB-102">Ananya Reddy (CB-102-CARE) | Hormonal &amp; Confidential Urinary</option>
+                <option value="CB-103">Siddharth Nair (CB-103-CARE) | Blood Pressure &amp; Cardiac</option>
+                <option value="CB-104">Meera Iyer (CB-104-CARE) | Digestive &amp; Liver Metabolism</option>
+                <option value="CB-105">Kabir Verma (CB-105-CARE) | Respiratory &amp; Airway</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="landing-doc-name">Medical Practitioner Name / Desk</label>
+              <input type="text" id="landing-doc-name" class="input-ctrl" value="Dr. Aravind Krishnan (Apollo Triage Desk)" placeholder="Enter practitioner name" />
+              <div class="field-error-line" id="err-doc-name">
+                <span class="excl-badge">!</span>
+                <span>Please enter the attending practitioner or desk name.</span>
+              </div>
+            </div>
+
+            <div class="field-block">
+              <label for="landing-doc-email">Practitioner Official Email</label>
+              <input type="email" id="landing-doc-email" class="input-ctrl" value="dr.krishnan@apollocare.org" placeholder="doctor@hospital.org" />
+              <div class="field-error-line" id="err-doc-email">
+                <span class="excl-badge">!</span>
+                <span>Please enter a valid hospital or practitioner email address.</span>
+              </div>
+            </div>
+
+            <button type="button" class="launch-cta-btn" id="launch-doctor-workspace-btn">
+              Launch Doctor Clinical Console
+            </button>
+            <div class="auth-footnote">HL7 / WHO Global Clinical Summary Compatible • Direct Appointment Approval</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 02: PATIENT CARE WORKSPACE (COLLAPSIBLE LEFT SIDEBAR + RIGHT MAIN)
+         =================================================================== -->
+    <section id="screen-patient" class="view-screen">
+      <div class="workspace-shell" id="pt-workspace-shell">
+        
+        <!-- FLEXIBLE COLLAPSIBLE LEFT SIDEBAR (ONLY LOGO ICON AT TOP, NO "NAVIGATION" TEXT) -->
+        <aside class="left-sidebar">
+          <div class="sidebar-logo-row">
+            <button type="button" class="sidebar-collapse-logo-btn" id="pt-collapse-btn" title="Minimize or Expand Sidebar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <line x1="9" y1="3" x2="9" y2="21"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="sidebar-collapsible-body">
+            <!-- USER DETAILS & HANDSHAKE KEY AT TOP OF SIDEBAR BEFORE STEPS -->
+            <div class="sidebar-user-card">
+              <span class="sidebar-role-tag">PATIENT PORTAL</span>
+              <div class="sidebar-user-name" id="pt-sidebar-name">Rohan Deshmukh</div>
+              <div class="sidebar-user-meta" id="pt-sidebar-meta">46Y • Male • Banjara Hills Sector 4, Hyderabad</div>
+              <div class="sidebar-user-meta" id="pt-sidebar-email">rohan.deshmukh@curebridge.org</div>
+              <div class="passkey-box">
+                <span class="passkey-code" id="pt-sidebar-passkey">CB-101-CARE</span>
+                <button type="button" class="mini-btn" id="copy-passkey-btn">Copy</button>
+              </div>
+            </div>
+
+            <div class="sidebar-nav-list">
+              <button type="button" class="sidebar-nav-btn active" data-pt-tab="pt-pane-overview">Overview &amp; Status</button>
+              <button type="button" class="sidebar-nav-btn" data-pt-tab="pt-pane-intake">01. 2-Stage Health Inputs</button>
+              <button type="button" class="sidebar-nav-btn" data-pt-tab="pt-pane-diet">02. Natural Diet &amp; Exercise</button>
+              <button type="button" class="sidebar-nav-btn" data-pt-tab="pt-pane-doctors">03. Nearby Doctors (KM Filter)</button>
+              <button type="button" class="sidebar-nav-btn" data-pt-tab="pt-pane-pdf">04. Global Hospital PDF</button>
+            </div>
+          </div>
+
+          <!-- Compact Rail Icons when Minimized -->
+          <div class="sidebar-Compact-icons">
+            <button type="button" class="compact-step-dot active" data-pt-compact="pt-pane-overview" title="Overview & Status">OV</button>
+            <button type="button" class="compact-step-dot" data-pt-compact="pt-pane-intake" title="01. 2-Stage Health Inputs">01</button>
+            <button type="button" class="compact-step-dot" data-pt-compact="pt-pane-diet" title="02. Natural Diet & Exercise">02</button>
+            <button type="button" class="compact-step-dot" data-pt-compact="pt-pane-doctors" title="03. Nearby Doctors">03</button>
+            <button type="button" class="compact-step-dot" data-pt-compact="pt-pane-pdf" title="04. Global Hospital PDF">04</button>
+          </div>
+        </aside>
+
+        <!-- MAIN RIGHT WORKSPACE -->
+        <div class="right-workspace">
+          
+          <!-- PATIENT SUB-PANE 1: OVERVIEW (AT THE TOP OF THE STEPS) -->
+          <div id="pt-pane-overview" class="sub-pane active">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div class="panel-title" id="pt-welcome-heading">Hello there, Rohan Deshmukh</div>
+                <span class="stage-pill stage-2" id="pt-overview-stage-pill">STAGE 2 // MODERATE &amp; REVERSIBLE WITH CARE</span>
+              </div>
+              <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;" id="pt-overview-summary-text"></p>
+
+              <div class="status-metrics-row">
+                <div class="metric-tile">
+                  <div class="metric-lbl">Primary Health Focus</div>
+                  <div class="metric-val" id="pt-ov-domain">Blood Sugar &amp; Metabolic</div>
+                  <div class="metric-sub" id="pt-ov-conf">Condition Match: High Confidence</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-lbl">Recommended Specialist</div>
+                  <div class="metric-val" id="pt-ov-spec">Endocrinologist &amp; Diabetologist</div>
+                  <div class="metric-sub" id="pt-ov-dist">Nearest Match: 0.9 km away</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="metric-lbl">Doctor Appointment Status</div>
+                  <div class="metric-val" id="pt-ov-appt-status">APPROVED BY DOCTOR</div>
+                  <div class="metric-sub" id="pt-ov-appt-time">Slot: Tomorrow, 10:30 AM</div>
+                </div>
+              </div>
+
+              <div class="status-metrics-row" style="margin-bottom: 0;">
+                <div class="metric-tile">
+                  <div class="feature-kicker">01 / PLAIN-LANGUAGE STAGE</div>
+                  <div class="feature-title">Know What Your Symptoms Mean</div>
+                  <div class="feature-desc">Translates fasting sugar, blood pressure, digestion, breathing, and fatigue into clear stages so you know how early action helps.</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="feature-kicker">02 / NATURAL DIET &amp; PHYSICAL CARE</div>
+                  <div class="feature-title">100% Drug-Free Daily Routine</div>
+                  <div class="feature-desc">Gives you specific morning, lunch, and dinner food choices plus gentle physical recovery exercises tailored to your condition.</div>
+                </div>
+                <div class="metric-tile">
+                  <div class="feature-kicker">03 / STIGMA-FREE PRE-DISCLOSURE</div>
+                  <div class="feature-title">No Awkward Clinic Conversations</div>
+                  <div class="feature-desc">Your private notes on urinary, hormonal, or intimate symptoms are shared respectfully in your doctor dossier before you arrive.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT STEP 01: 2-STAGE HEALTH & PRIVATE SENSITIVE INPUTS -->
+          <div id="pt-pane-intake" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div class="panel-title">Step 01: 2-Stage Health Readings &amp; Private Disclosures</div>
+                <span style="font-size: 12px; font-weight: 700; color: var(--accent);" id="pt-record-lock-status">Verified Baseline Profile</span>
+              </div>
+
+              <!-- TWO-STAGE HEALTH INPUTS (PART 1: EVERYDAY READINGS + PART 2: PRIVATE SENSITIVE DISCLOSURE) -->
+              <div id="intake-step-1" class="intake-step-box">
+                <div class="stage-input-subtabs">
+                  <button type="button" class="stage-subtab-btn active" id="subtab-stage1a" onclick="switchStage1Subtab('1a')">
+                    Stage 1: Everyday Difficulties &amp; Readings
+                  </button>
+                  <button type="button" class="stage-subtab-btn" id="subtab-stage1b" onclick="switchStage1Subtab('1b')">
+                    Stage 2: Private &amp; Sensitive Disclosures
+                  </button>
+                </div>
+
+                <!-- PART 1A: EVERYDAY READINGS & SYMPTOMS (NUMERIC BOXES FOR 6 VITALS, UNTOUCHED DROPDOWNS) -->
+                <div id="stage1-part-a">
+                  <div class="two-col-form">
+                    <div class="field-block">
+                      <label for="in-age">Age (Years)</label>
+                      <input type="number" id="in-age" min="18" max="85" value="46" class="input-ctrl" />
+                    </div>
+                    <div class="field-block">
+                      <label for="in-bmi">BMI (kg/m2)</label>
+                      <input type="number" id="in-bmi" min="15" max="45" step="0.1" value="28.4" class="input-ctrl" />
+                    </div>
+                    <div class="field-block">
+                      <label for="in-glucose">Fasting Blood Sugar (mg/dL)</label>
+                      <input type="number" id="in-glucose" min="65" max="280" value="138" class="input-ctrl" />
+                    </div>
+                    <div class="field-block">
+                      <label for="in-bp">Systolic Blood Pressure (mmHg)</label>
+                      <input type="number" id="in-bp" min="85" max="210" value="128" class="input-ctrl" />
+                    </div>
+                    <div class="field-block">
+                      <label for="in-spo2">Blood Oxygen SpO2 (%)</label>
+                      <input type="number" id="in-spo2" min="85" max="100" step="0.1" value="97.2" class="input-ctrl" />
+                    </div>
+                    <div class="field-block">
+                      <label for="in-sleep">Average Daily Sleep (Hours)</label>
+                      <input type="number" id="in-sleep" min="3" max="12" step="0.5" value="6.2" class="input-ctrl" />
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-thirst">Excessive Thirst or Frequent Urination</label>
+                      <select id="in-thirst" class="select-ctrl">
+                        <option value="0">None (Normal hydration and urination)</option>
+                        <option value="1">Mild (Occasional dry mouth or waking once at night)</option>
+                        <option value="2" selected>Moderate (Frequent thirst and waking 2+ times at night)</option>
+                        <option value="3">High (Constant thirst and frequent urination for &gt; 1 month)</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-fatigue">Afternoon Fatigue, Energy Drops or Sugar Cravings</label>
+                      <select id="in-fatigue" class="select-ctrl">
+                        <option value="0">Normal steady daily energy</option>
+                        <option value="1">Mild tiredness after heavy meals</option>
+                        <option value="2" selected>Frequent energy crashes and sweet cravings</option>
+                        <option value="3">Constant exhaustion and brain fog daily</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-chest">Chest Tightness, Palpitations or Dizziness</label>
+                      <select id="in-chest" class="select-ctrl">
+                        <option value="0" selected>None</option>
+                        <option value="1">Mild occasional racing heart under stress</option>
+                        <option value="2">Noticeable tightness or pounding when walking</option>
+                        <option value="3">Frequent chest heaviness or morning headaches</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-digestion">Acidity, Bloating or Upper Belly Heaviness</label>
+                      <select id="in-digestion" class="select-ctrl">
+                        <option value="0">Normal comfortable digestion</option>
+                        <option value="1" selected>Occasional bloating after oily meals</option>
+                        <option value="2">Frequent acid reflux, gas or right-side heaviness</option>
+                        <option value="3">Daily severe acidity, nausea or sluggish digestion</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-cough">Coughing, Wheezing or Shortness of Breath</label>
+                      <select id="in-cough" class="select-ctrl">
+                        <option value="0" selected>Clear breathing, no cough</option>
+                        <option value="1">Mild cough or breathlessness on stairs (&lt; 3 weeks)</option>
+                        <option value="2">Persistent cough or wheezing (1 to 2 months)</option>
+                        <option value="3">Chronic daily cough and breathlessness (&gt; 2 months)</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-activity">Daily Physical Activity Level</label>
+                      <select id="in-activity" class="select-ctrl">
+                        <option value="0">Active (30+ mins brisk walking or exercise daily)</option>
+                        <option value="1" selected>Light movement (Mostly desk work, occasional walks)</option>
+                        <option value="2">Sedentary (8+ hours sitting, minimal physical activity)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="button" class="launch-cta-btn" onclick="switchStage1Subtab('1b')" style="margin-top: 8px;">
+                    Continue to Stage 2: Private &amp; Sensitive Disclosures
+                  </button>
+                </div>
+
+                <!-- PART 1B: BRIDGING THE STIGMA CURTAIN (PRIVATE & SENSITIVE DISCLOSURES) -->
+                <div id="stage1-part-b" style="display: none;">
+                  <div style="background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">
+                      Bridging the Patient-to-Doctor Privacy Curtain
+                    </div>
+                    <div style="font-size: 12.5px; color: var(--text-secondary);">
+                      In many clinics, patients feel hesitant or embarrassed to bring up urinary, reproductive, menstrual, pelvic, or sexual health difficulties face-to-face. Selecting them here shares them respectfully in your doctor's clinical pre-read so your doctor can address them sensitively without awkwardness.
+                    </div>
+                  </div>
+
+                  <div class="two-col-form">
+                    <div class="field-block">
+                      <label for="in-intimate">Urinary Burning, Pelvic or Intimate Discomfort</label>
+                      <select id="in-intimate" class="select-ctrl">
+                        <option value="0" selected>No urinary or intimate discomfort</option>
+                        <option value="1">Mild occasional urinary urgency or irritation</option>
+                        <option value="2">Recurring burning, pelvic heaviness or intimate discomfort</option>
+                        <option value="3">Persistent discomfort that I feel hesitant to explain aloud</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-hormonal">Hormonal, Menstrual/PCOS or Sexual Vitality Concerns</label>
+                      <select id="in-hormonal" class="select-ctrl">
+                        <option value="0" selected>No hormonal or reproductive concerns</option>
+                        <option value="1">Mild cycle irregularity, hormonal acne or low drive</option>
+                        <option value="2">Noticeable PCOS signs, erectile/libido drop or endocrine fatigue</option>
+                        <option value="3">Significant reproductive or intimate concern needing specialist care</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-stress">Emotional Stress, Sleep Anxiety or Burnout</label>
+                      <select id="in-stress" class="select-ctrl">
+                        <option value="0">Calm and well-rested</option>
+                        <option value="1" selected>Moderate work or family stress</option>
+                        <option value="2">High daily anxiety affecting sleep and digestion</option>
+                      </select>
+                    </div>
+
+                    <div class="field-block">
+                      <label for="in-pref-gender">Doctor Communication Preference</label>
+                      <select id="in-pref-gender" class="select-ctrl">
+                        <option value="Direct &amp; Empathetic">Please review my private note before calling me in</option>
+                        <option value="Female Specialist Preferred">Prefer a Female Specialist if available</option>
+                        <option value="Male Specialist Preferred">Prefer a Male Specialist if available</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="field-block">
+                    <label for="in-private-note">Private Pre-Consultation Note for the Doctor (Shared Confidentially Before Visit)</label>
+                    <textarea id="in-private-note" rows="3" class="textarea-ctrl">I have been experiencing frequent night urination and afternoon exhaustion, and I wanted to share this ahead of time so we can discuss if it is related to early blood sugar changes.</textarea>
+                  </div>
+
+                  <button type="button" class="launch-cta-btn" id="goto-step-2-btn">
+                    Generate Stage Assessment &amp; View Step 02: Natural Diet &amp; Exercise
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT STEP 02: SEPARATE NATURAL DIET & PHYSICAL RECOVERY SUB-PANE -->
+          <div id="pt-pane-diet" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div class="panel-title">Step 02: Natural Dietary Care &amp; Physical Recovery Plan</div>
+                <span class="stage-pill stage-2" id="res-stage-badge">STAGE 2 // MODERATE &amp; REVERSIBLE WITH CARE</span>
+              </div>
+
+              <div style="background: var(--bg-elevated); border: 1px solid var(--border-strong); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+                <div class="metric-lbl">Predicted Primary Health Issue</div>
+                <div style="font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;" id="res-domain-title">Blood Sugar &amp; Metabolic Imbalance</div>
+                <p style="font-size: 13px; color: var(--text-secondary);" id="res-plain-explanation"></p>
+              </div>
+
+              <div class="diet-grid">
+                <div class="diet-card">
+                  <h4>100% Drug-Free Daily Dietary Plan</h4>
+                  <ul class="diet-list" id="res-diet-list"></ul>
+                </div>
+                <div class="diet-card">
+                  <h4>Natural Physical Recovery &amp; Movement Plan</h4>
+                  <ul class="diet-list" id="res-physical-list"></ul>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+                <button type="button" class="launch-cta-btn" id="goto-doctors-tab-btn" style="flex: 1;">
+                  Step 03: Select Nearby Doctor &amp; Book Appointment
+                </button>
+                <button type="button" class="launch-cta-btn" id="goto-pdf-step-btn" style="flex: 1; background: var(--bg-subtle); color: var(--text-primary); border: 1px solid var(--border-strong);">
+                  Step 04: View / Download Global Hospital PDF
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT STEP 04: DEDICATED REAL WHITE GLOBAL HOSPITAL PDF VIEW -->
+          <div id="pt-pane-pdf" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar no-print">
+                <div class="panel-title">Step 04: Global Hospital Standard Clinical Summary (WHO / HL7 IPS Format)</div>
+                <button type="button" class="launch-cta-btn" id="print-pdf-btn" style="width: auto; margin: 0; padding: 9px 16px;">
+                  Print / Save Official Hospital PDF
+                </button>
+              </div>
+
+              <div class="pdf-viewport-frame">
+                <div class="hospital-pdf-sheet" id="printable-dossier-area"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PATIENT SUB-PANE 4: SIMPLIFIED NEARBY SPECIALIST FINDER (KM DROPDOWN + FOODRESCUE SPATIAL ENGINE, NO RADAR MAP) -->
+          <div id="pt-pane-doctors" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div>
+                  <div class="panel-title">Nearby Specialized Doctors (Dynamic Spatial Radius Filter)</div>
+                  <div style="font-size: 12.5px; color: var(--text-secondary);" id="radar-sector-subtitle">Showing verified specialists near Banjara Hills Sector 4, Hyderabad</div>
+                </div>
+                <select id="radar-radius-select" class="select-ctrl" style="width: auto; font-weight: 700;">
+                  <option value="1.5">Within 1.5 km Radius</option>
+                  <option value="3.0" selected>Within 3.0 km Radius</option>
+                  <option value="5.0">Within 5.0 km Radius</option>
+                  <option value="8.0">Within 8.0 km Radius (All)</option>
+                </select>
+              </div>
+
+              <!-- FoodRescue Geospatial Dispatch & Haversine Distance Engine Note -->
+              <div style="background: var(--accent-soft); border: 1px solid var(--border-strong); border-radius: 10px; padding: 11px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <div style="font-size: 12px; color: var(--text-primary);">
+                  <strong>Backend Geospatial Routing (FoodRescue Haversine &amp; Priority Dispatch Engine):</strong> Computes great-circle distance and travel ETA from your sector and ranks verified specialists by proximity and condition match.
+                </div>
+                <span style="font-size: 12px; font-weight: 800; color: var(--accent);" id="radar-count-banner"></span>
+              </div>
+
+              <div class="doc-directory-grid" id="specialist-cards-container"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SCREEN 03: DOCTOR CLINICAL CONSOLE (COLLAPSIBLE LEFT SIDEBAR + RIGHT MAIN)
+         =================================================================== -->
+    <section id="screen-doctor" class="view-screen">
+      <div class="workspace-shell" id="doc-workspace-shell">
+        
+        <!-- FLEXIBLE COLLAPSIBLE LEFT SIDEBAR -->
+        <aside class="left-sidebar">
+          <div class="sidebar-logo-row">
+            <button type="button" class="sidebar-collapse-logo-btn" id="doc-collapse-btn" title="Minimize or Expand Sidebar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <line x1="9" y1="3" x2="9" y2="21"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="sidebar-collapsible-body">
+            <div class="sidebar-user-card">
+              <span class="sidebar-role-tag">DOCTOR PORTAL</span>
+              <div class="sidebar-user-name" id="doc-sidebar-title">Dr. Aravind Krishnan</div>
+              <div class="sidebar-user-meta" id="doc-sidebar-email">dr.krishnan@apollocare.org</div>
+              <div class="sidebar-user-meta" id="doc-sidebar-patient" style="margin-top: 4px; font-weight: 700; color: var(--accent);">Active Case: Rohan Deshmukh</div>
+            </div>
+
+            <div class="sidebar-nav-list" style="margin-bottom: 14px;">
+              <button type="button" class="sidebar-nav-btn active" data-doc-tab="doc-pane-overview">01. Desk Overview &amp; Queue</button>
+              <button type="button" class="sidebar-nav-btn" data-doc-tab="doc-pane-profile">02. Patient Profile &amp; Private Notes</button>
+              <button type="button" class="sidebar-nav-btn" data-doc-tab="doc-pane-pdf">03. Hospital Clinical Record (PDF)</button>
+            </div>
+
+            <div style="font-size: 10.5px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;">SWITCH PATIENT IN QUEUE</div>
+            <select id="doc-queue-switcher" class="select-ctrl">
+              <option value="CB-101">Rohan Deshmukh (CB-101)</option>
+              <option value="CB-102">Ananya Reddy (CB-102)</option>
+              <option value="CB-103">Siddharth Nair (CB-103)</option>
+              <option value="CB-104">Meera Iyer (CB-104)</option>
+              <option value="CB-105">Kabir Verma (CB-105)</option>
+            </select>
+          </div>
+
+          <!-- Compact Rail Icons when Minimized -->
+          <div class="sidebar-Compact-icons">
+            <button type="button" class="compact-step-dot active" data-doc-compact="doc-pane-overview" title="01. Desk Overview & Queue">01</button>
+            <button type="button" class="compact-step-dot" data-doc-compact="doc-pane-profile" title="02. Patient Profile & Private Notes">02</button>
+            <button type="button" class="compact-step-dot" data-doc-compact="doc-pane-pdf" title="03. Hospital Clinical Record (PDF)">03</button>
+          </div>
+        </aside>
+
+        <!-- MAIN RIGHT WORKSPACE -->
+        <div class="right-workspace">
+          
+          <!-- DOCTOR SUB-PANE 1: DESK OVERVIEW & APPOINTMENT APPROVAL QUEUE -->
+          <div id="doc-pane-overview" class="sub-pane active">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div class="panel-title">Medical Practitioner Triage Queue &amp; Appointment Approvals</div>
+                <span class="stage-pill stage-1">HL7 / WHO PRE-VISIT DOSSIER READY</span>
+              </div>
+              <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                Review incoming patient profiles, inspect their pre-disclosed sensitive concerns and stage classification, and approve or open their full dossier in one click.
+              </p>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Passkey ID</th>
+                      <th>Patient Name</th>
+                      <th>Primary Condition &amp; Stage</th>
+                      <th>Confidential Pre-Disclosure</th>
+                      <th>Requested Specialist &amp; Slot</th>
+                      <th>Status</th>
+                      <th>Doctor Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="doc-queue-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR SUB-PANE 2: DETAILED PATIENT PROFILE, STIGMA-FREE NOTES & RESCHEDULE / APPROVE OPTIONS -->
+          <div id="doc-pane-profile" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar">
+                <div class="panel-title" id="doc-detail-heading">Patient Clinical Dossier: Rohan Deshmukh</div>
+                <span class="stage-pill stage-2" id="doc-detail-stage">STAGE 2 // MODERATE &amp; REVERSIBLE WITH CARE</span>
+              </div>
+
+              <!-- STIGMA-FREE PRE-DISCLOSURE CALLOUT FOR THE DOCTOR -->
+              <div style="background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; padding: 14px; margin-bottom: 16px;">
+                <div class="feature-kicker">PATIENT PRE-DISCLOSED SENSITIVE / PRIVATE NOTE (HANDLE WITH EMPATHY)</div>
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin-top: 4px;" id="doc-private-note-box"></div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;" id="doc-comm-pref-box"></div>
+              </div>
+
+              <div class="status-metrics-row" id="doc-vitals-strip"></div>
+
+              <div class="field-block" style="margin-top: 12px;">
+                <label for="doc-clinical-note-input">Doctor's Pre-Visit Guidance &amp; Approval Note (Sent Directly to Patient Portal &amp; PDF)</label>
+                <textarea id="doc-clinical-note-input" rows="3" class="textarea-ctrl">Appointment confirmed. Please bring any fasting blood test reports from the last 6 months and start the Stage 2 low-glycemic dietary plan shown in your portal.</textarea>
+              </div>
+
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button type="button" class="launch-cta-btn" id="doc-approve-current-btn" style="flex: 1; margin: 0;">
+                  Approve Appointment &amp; Send Doctor Note
+                </button>
+                <button type="button" class="launch-cta-btn" id="doc-reschedule-current-btn" style="flex: 1; margin: 0; background: var(--bg-subtle); color: var(--text-primary); border: 1px solid var(--border-strong);">
+                  Mark as Rescheduled (Next Day 11:00 AM)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR SUB-PANE 3: HOSPITAL CLINICAL RECORD PDF -->
+          <div id="doc-pane-pdf" class="sub-pane">
+            <div class="panel-card">
+              <div class="panel-top-bar no-print">
+                <div class="panel-title">Official Hospital Clinical Record (Doctor Verified Copy)</div>
+                <button type="button" class="launch-cta-btn" id="doc-print-pdf-btn" style="width: auto; margin: 0; padding: 9px 16px;">
+                  Print / Export Hospital PDF
+                </button>
+              </div>
+              <div class="pdf-viewport-frame"><div class="hospital-pdf-sheet" id="doc-printable-dossier-area"></div></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CLEAN FOOTER WITH ATEEQ WAHLAN (WAHLANOS.COM) -->
+  <footer class="site-footer">
+    <div>CureBridge | Smart Patient-to-Doctor Health Understanding, Natural Dietary Care &amp; Local Specialist System</div>
+    <div>Concept &amp; Built by <a href="https://wahlanos.com" target="_blank" rel="noopener">Ateeq Wahlan (WahlanOS.com)</a></div>
+  </footer>
+
+  <div id="toast-box" class="toast-box">Action completed.</div>
+
+  <script>
+    const ML_ARTIFACTS = {"feature_cols": ["AGE", "BMI", "FASTING_GLUCOSE", "SYSTOLIC_BP", "SPO2_PCT", "SLEEP_HOURS", "THIRST_URINATION", "FATIGUE_CRAVINGS", "CHEST_PALPITATION", "BLOATING_ACIDITY", "COUGH_DYSPNEA", "INTIMATE_URINARY_DISCOMFORT", "HORMONAL_CYCLE_LIBIDO", "STRESS_ANXIETY", "SEDENTARY_LEVEL"], "domains": ["Blood Sugar & Metabolic Imbalance (Pre-Diabetes / Diabetes Risk)", "Blood Pressure & Heart Strain", "Digestive Acidity & Liver Metabolism Strain", "Breathing & Airway Sensitivity", "Hormonal, Urinary & Personal Health Balance"], "mean": [48.536, 27.4816, 105.038, 124.558, 97.0074, 6.8152, 0.724, 1.04, 0.676, 0.77, 0.67, 0.682, 0.602, 0.926, 0.784], "std": [15.6281, 4.2085, 23.5597, 15.9039, 1.6728, 1.0859, 0.9939, 1.0268, 0.9503, 0.9763, 0.9514, 0.97, 0.9336, 0.8947, 0.733], "W_domain": [[0.04062, 0.48914, 2.40287, -0.84032, 0.21423, 0.26631, 1.7505, 0.69104, -0.23082, -0.12079, -0.6563, -0.4293, -0.59759, -0.06383, 0.50797, -0.31625], [0.00063, -0.04642, -0.27636, 1.59787, 0.21867, -0.24331, -0.13321, -0.8315, 2.16379, -0.54212, -0.49702, -0.27711, -0.26564, 1.10789, -0.13194, -0.15319], [0.65732, -0.11327, -1.16214, -0.0474, 0.64038, 0.06368, -0.92033, 1.46876, -1.12105, 1.85573, -0.11089, -0.39767, -0.39127, -0.54664, -0.25604, 0.64968], [-0.03464, -0.24638, -0.53853, -0.28233, -2.07878, -0.31176, -0.43846, -0.53385, -0.52749, -0.62086, 1.76273, -0.48498, -0.63762, 0.04985, -0.19875, 0.04101], [-0.66392, -0.08307, -0.42584, -0.42781, 1.00551, 0.22508, -0.25849, -0.79446, -0.28443, -0.57196, -0.49852, 1.58907, 1.89213, -0.54727, 0.07875, -0.22125]], "cv_accuracy_pct": 96.8, "total_patients": 500, "stage_counts": {"2": 233, "3": 217, "1": 50}};
+
+    // 5 Rich Pre-Loaded Patient Profiles (Calibrated so they span Stage 1, Stage 2, and Stage 3 accurately!)
+    const PATIENT_PROFILES = {
+      "CB-101": {
+        id: "CB-101",
+        passkey: "CB-101-CARE",
+        name: "Rohan Deshmukh",
+        email: "rohan.deshmukh@curebridge.org",
+        isExistingVerified: true,
+        age: 46,
+        sex: "Male",
+        city: "Banjara Hills Sector 4, Hyderabad",
+        bmi: 27.6,
+        glucose: 134,
+        bp: 126,
+        spo2: 97.4,
+        sleep: 6.5,
+        thirst: 2,
+        fatigue: 1,
+        chest: 0,
+        digestion: 1,
+        cough: 0,
+        activity: 1,
+        intimate: 0,
+        hormonal: 0,
+        stress: 1,
+        prefGender: "Direct & Empathetic",
+        privateNote: "I have been experiencing frequent night urination, dry mouth, and afternoon exhaustion. I wanted to share this ahead of time so we can check if it is related to early blood sugar changes.",
+        apptStatus: "APPROVED",
+        apptSlot: "Tomorrow, 10:30 AM",
+        selectedDocName: "Dr. Aravind Krishnan (MD, Endocrinologist & Diabetologist)",
+        selectedDocHosp: "Apollo Sugar & Metabolic Clinic (0.9 km)",
+        docNote: "Appointment approved. Your fasting glucose (134 mg/dL) and thirst/fatigue pattern indicate Stage 2 reversible metabolic insulin resistance. Start the fiber-first meal plan and bring a fasting HbA1c test."
+      },
+      "CB-102": {
+        id: "CB-102",
+        passkey: "CB-102-CARE",
+        name: "Ananya Reddy",
+        email: "ananya.reddy@curebridge.org",
+        isExistingVerified: true,
+        age: 31,
+        sex: "Female",
+        city: "Indiranagar 100ft Rd, Bengaluru",
+        bmi: 23.4,
+        glucose: 94,
+        bp: 114,
+        spo2: 98.4,
+        sleep: 7.0,
+        thirst: 0,
+        fatigue: 1,
+        chest: 0,
+        digestion: 0,
+        cough: 0,
+        activity: 1,
+        intimate: 1,
+        hormonal: 2,
+        stress: 1,
+        prefGender: "Female Specialist Preferred",
+        privateNote: "I have had irregular menstrual cycles, mild pelvic heaviness, and occasional urinary discomfort that I felt awkward explaining at a crowded clinic reception. I would appreciate a private, empathetic consultation.",
+        apptStatus: "PENDING APPROVAL",
+        apptSlot: "Requested: Thursday, 11:15 AM",
+        selectedDocName: "Dr. Meenakshi Rao (MD, Gynecology, PCOS & Uro-Endocrinology)",
+        selectedDocHosp: "Manipal Women & Endocrine Center (1.1 km)",
+        docNote: "Thank you for sharing your symptoms beforehand. We have reserved a private consultation room with zero reception questioning."
+      },
+      "CB-103": {
+        id: "CB-103",
+        passkey: "CB-103-CARE",
+        name: "Siddharth Nair",
+        email: "siddharth.nair@curebridge.org",
+        isExistingVerified: true,
+        age: 54,
+        sex: "Male",
+        city: "Bandra West, Mumbai",
+        bmi: 27.2,
+        glucose: 104,
+        bp: 148,
+        spo2: 97.0,
+        sleep: 6.0,
+        thirst: 0,
+        fatigue: 1,
+        chest: 2,
+        digestion: 0,
+        cough: 0,
+        activity: 1,
+        intimate: 0,
+        hormonal: 0,
+        stress: 1,
+        prefGender: "Direct & Empathetic",
+        privateNote: "I notice chest tightness and a pounding heartbeat when climbing stairs, along with work stress and reduced physical stamina.",
+        apptStatus: "APPROVED",
+        apptSlot: "Friday, 09:45 AM",
+        selectedDocName: "Dr. Vikramaditya Sen (DM, Preventive Cardiology)",
+        selectedDocHosp: "Asian Heart & Vascular Institute (1.1 km)",
+        docNote: "Appointment approved. Please track your morning and evening blood pressure for 3 days and follow the low-sodium potassium-rich dietary plan."
+      },
+      "CB-104": {
+        id: "CB-104",
+        passkey: "CB-104-CARE",
+        name: "Meera Iyer",
+        email: "meera.iyer@curebridge.org",
+        isExistingVerified: true,
+        age: 39,
+        sex: "Female",
+        city: "Adyar, Chennai",
+        bmi: 24.8,
+        glucose: 98,
+        bp: 118,
+        spo2: 98.2,
+        sleep: 6.8,
+        thirst: 0,
+        fatigue: 1,
+        chest: 0,
+        digestion: 2,
+        cough: 0,
+        activity: 1,
+        intimate: 0,
+        hormonal: 0,
+        stress: 1,
+        prefGender: "Direct & Empathetic",
+        privateNote: "I experience acid reflux, bloating after meals, and mild dull heaviness on the upper right side of my abdomen.",
+        apptStatus: "PENDING APPROVAL",
+        apptSlot: "Requested: Saturday, 04:00 PM",
+        selectedDocName: "Dr. Karthik Subramanian (DM, Gastroenterology & Hepatology)",
+        selectedDocHosp: "Fortis Digestive & Liver Clinic (1.0 km)",
+        docNote: "Pre-visit dossier received. Avoid late-night meals and spicy/fried foods prior to your digestive and liver check."
+      },
+      "CB-105": {
+        id: "CB-105",
+        passkey: "CB-105-CARE",
+        name: "Kabir Verma",
+        email: "kabir.verma@curebridge.org",
+        isExistingVerified: true,
+        age: 62,
+        sex: "Male",
+        city: "Vasant Kunj, New Delhi",
+        bmi: 23.8,
+        glucose: 99,
+        bp: 132,
+        spo2: 92.8,
+        sleep: 6.0,
+        thirst: 0,
+        fatigue: 2,
+        chest: 1,
+        digestion: 0,
+        cough: 3,
+        activity: 1,
+        intimate: 0,
+        hormonal: 0,
+        stress: 1,
+        prefGender: "Direct & Empathetic",
+        privateNote: "I have had a persistent cough and breathlessness on walking for over 6 weeks, and my home oximeter reads around 92.8%.",
+        apptStatus: "APPROVED",
+        apptSlot: "Tomorrow, 02:15 PM",
+        selectedDocName: "Dr. Rajeshwari Menon (MD, Pulmonology & Chest Medicine)",
+        selectedDocHosp: "Max Respiratory & Thoracic Center (1.0 km)",
+        docNote: "Priority appointment approved. We will perform a baseline spirometry breathing test and chest examination."
+      },
+      "CB-106": {
+        id: "CB-106",
+        passkey: "CB-106-CARE",
+        name: "New Patient",
+        email: "patient@curebridge.org",
+        isExistingVerified: false,
+        age: 34,
+        sex: "Patient",
+        city: "Banjara Hills Sector 4, Hyderabad",
+        bmi: 23.8,
+        glucose: 98,
+        bp: 118,
+        spo2: 98.0,
+        sleep: 7.0,
+        thirst: 1,
+        fatigue: 1,
+        chest: 0,
+        digestion: 0,
+        cough: 0,
+        activity: 1,
+        intimate: 0,
+        hormonal: 0,
+        stress: 0,
+        prefGender: "Direct & Empathetic",
+        privateNote: "Sharing my baseline readings and daily symptoms for an early health stage check and natural dietary plan.",
+        apptStatus: "OPTIONAL CONSULTATION",
+        apptSlot: "Select any specialist below to request a slot",
+        selectedDocName: "Dr. Aravind Krishnan (MD, Endocrinologist & Diabetologist)",
+        selectedDocHosp: "Apollo Sugar & Metabolic Clinic (0.9 km)",
+        docNote: "Awaiting appointment request. Follow the personalized 100% drug-free dietary and physical recovery plan."
+      }
+    };
+
+    const DOMAIN_CARE_GUIDE = [
+      {
+        shortName: "Blood Sugar & Metabolic Imbalance",
+        plainSummary: "Your fasting blood sugar reading and symptoms (such as frequent thirst, waking at night to urinate, and afternoon energy drops) point to early insulin resistance or metabolic strain. Structured meal sequencing and daily post-meal physical movement can naturally support healthy blood sugar balance.",
+        dietPlan: [
+          "<strong>Morning (7:30 AM):</strong> Warm fenugreek (methi) seed soaked water + high-protein savory breakfast (moong dal chilla, eggs, or steel-cut oats with chia seeds and walnuts).",
+          "<strong>Lunch (1:00 PM - Fiber-First Rule):</strong> Eat a bowl of cucumber, tomato, and leafy greens 10 minutes before eating complex grains (hand-pounded brown rice, millet roti, or quinoa) with dal and bitter gourd (karela) or spinach.",
+          "<strong>Evening Snack (4:30 PM):</strong> Roasted makhana (foxnuts), soaked almonds, and unsweetened cinnamon green tea.",
+          "<strong>Dinner (Before 7:30 PM):</strong> Light vegetable soup, grilled paneer/tofu or fish, and sauteed broccoli/beans. Strictly avoid refined white sugar, sweet beverages, and white flour."
+        ],
+        physicalPlan: [
+          "<strong>15-Minute Post-Meal Walk:</strong> Walk at a comfortable pace for 15 minutes immediately after lunch and dinner to let leg muscles absorb excess blood glucose naturally.",
+          "<strong>Resistance &amp; Bodyweight Routine:</strong> 20 minutes of squats, wall push-ups, and light resistance exercises 4 days a week to improve muscle insulin sensitivity.",
+          "<strong>Sleep &amp; Cortisol Reset:</strong> Maintain 7.5 hours of dark, uninterrupted sleep to prevent morning fasting sugar spikes."
+        ],
+        specialists: [
+          { name: "Dr. Aravind Krishnan", spec: "MD, Endocrinologist & Diabetologist", hosp: "Apollo Sugar & Metabolic Clinic", distKm: 0.9, eta: "4 mins", fee: "₹700" },
+          { name: "Dr. Neha Kulkarni", spec: "MD, Metabolic & Lifestyle Medicine", hosp: "Care Continuum Center", distKm: 1.4, eta: "6 mins", fee: "₹650" },
+          { name: "Dr. Farhan Ahmed", spec: "MD, Internal Medicine & Diabetology", hosp: "Yashoda Outpatient Hub", distKm: 2.4, eta: "9 mins", fee: "₹600" },
+          { name: "Dr. Sunita Deshmukh", spec: "DM, Clinical Endocrinology", hosp: "Aster Metabolic Institute", distKm: 3.6, eta: "13 mins", fee: "₹750" },
+          { name: "Dr. Raghavendra Rao", spec: "MD, Diabetology & Foot Care", hosp: "Rainbow Specialty Clinic", distKm: 4.7, eta: "17 mins", fee: "₹650" },
+          { name: "Dr. Vikramjeet Singh", spec: "DM, Senior Endocrinologist", hosp: "Continental Metro Hospital", distKm: 6.8, eta: "24 mins", fee: "₹850" }
+        ]
+      },
+      {
+        shortName: "Blood Pressure & Heart Strain",
+        plainSummary: "Your blood pressure reading and exertional tightness/palpitation indicators suggest elevated vascular tension. Adopting a potassium- and magnesium-rich natural diet alongside steady daily walking helps relax arterial walls naturally.",
+        dietPlan: [
+          "<strong>Morning:</strong> Warm water with a clove of crushed garlic + hibiscus or tulsi herbal infusion (avoid strong morning coffee on an empty stomach).",
+          "<strong>Lunch (DASH Balance):</strong> Steamed beetroot and pomegranate salad, millet roti, dal with minimal added salt, and potassium-rich greens (spinach, amaranth).",
+          "<strong>Evening:</strong> Unsalted pumpkin seeds, flaxseeds, and 1 small banana or tender coconut water.",
+          "<strong>Foods to Avoid:</strong> Packaged namkeen, pickles, papad, processed cheese, and excess table salt (keep sodium under 1,500 mg/day)."
+        ],
+        physicalPlan: [
+          "<strong>30-Minute Brisk Morning Walk:</strong> Steady moderate walking in a park without straining.",
+          "<strong>Gentle Shoulder &amp; Thoracic Mobility:</strong> 10 minutes of upper-body posture and stretching exercises twice daily to reduce vascular tension.",
+          "<strong>Evening Digital Wind-Down:</strong> Step away from work screens 1 hour before bed for restful cardiovascular recovery."
+        ],
+        specialists: [
+          { name: "Dr. Vikramaditya Sen", spec: "DM, Preventive Cardiology", hosp: "Asian Heart & Vascular Institute", distKm: 1.1, eta: "5 mins", fee: "₹900" },
+          { name: "Dr. Priya Deshpande", spec: "MD, Hypertension & Cardiac Care", hosp: "Fortis Heart Clinic", distKm: 1.4, eta: "6 mins", fee: "₹800" },
+          { name: "Dr. Suresh Nambiar", spec: "DM, Senior Cardiologist", hosp: "Star Vascular Center", distKm: 2.5, eta: "10 mins", fee: "₹850" },
+          { name: "Dr. Kavita Subbiah", spec: "MD, Non-Invasive Cardiology", hosp: "Care Heart Center", distKm: 3.8, eta: "14 mins", fee: "₹750" },
+          { name: "Dr. Manoj Chawla", spec: "DM, Interventional Cardiologist", hosp: "Sunshine Cardiac Hub", distKm: 4.6, eta: "17 mins", fee: "₹900" },
+          { name: "Dr. Harish Shetty", spec: "DM, Chief Cardiac Consultant", hosp: "Narayana Regional Heart", distKm: 6.5, eta: "22 mins", fee: "₹950" }
+        ]
+      },
+      {
+        shortName: "Digestive Acidity & Liver Metabolism Strain",
+        plainSummary: "Your frequent bloating, acid reflux, and post-meal heaviness point to upper digestive irritation and sluggish liver lipid metabolism. Cooling, alkaline whole foods and early meal timing allow the gut and liver to recover naturally.",
+        dietPlan: [
+          "<strong>Morning:</strong> Lukewarm water with fennel (saunf) seeds + soaked raisins, followed by papaya or stewed apple and oats porridge.",
+          "<strong>Lunch:</strong> Buttermilk (chaas) with roasted cumin and fresh mint, soft rice or phulka, bottle gourd (lauki) or ridge gourd (turai), and moong dal.",
+          "<strong>Evening:</strong> Chamomile or ginger-fennel infusion with soaked walnuts.",
+          "<strong>Foods to Avoid:</strong> Deep-fried snacks, late-night heavy dinners, carbonated sodas, spicy chilies, and alcohol."
+        ],
+        physicalPlan: [
+          "<strong>3-Hour Bedtime Gap:</strong> Finish dinner at least 3 hours before lying down to prevent nighttime acid reflux.",
+          "<strong>Post-Meal Upright Posture &amp; Gentle Walk:</strong> Sit upright for 10 minutes after meals followed by a gentle 10-minute stroll.",
+          "<strong>25-Minute Daily Aerobic Movement:</strong> Brisk walking or cycling to mobilize liver fat stores naturally."
+        ],
+        specialists: [
+          { name: "Dr. Karthik Subramanian", spec: "DM, Gastroenterology & Hepatology", hosp: "Fortis Digestive & Liver Clinic", distKm: 1.0, eta: "4 mins", fee: "₹800" },
+          { name: "Dr. Anjali Menon", spec: "MD, Clinical Hepatology & Gut Health", hosp: "AIG Outpatient Center", distKm: 1.4, eta: "6 mins", fee: "₹750" },
+          { name: "Dr. Rohit Bhatia", spec: "DM, Gastroenterologist", hosp: "KIMS Digestive Care", distKm: 2.6, eta: "10 mins", fee: "₹700" },
+          { name: "Dr. Swati Patwardhan", spec: "MD, GI Motility & Liver Specialist", hosp: "Gleneagles Gut Clinic", distKm: 3.7, eta: "14 mins", fee: "₹750" },
+          { name: "Dr. Naveen Reddy", spec: "DM, Hepatology & Endoscopy", hosp: "Yashoda Liver Center", distKm: 4.8, eta: "18 mins", fee: "₹800" },
+          { name: "Dr. Deepak Varma", spec: "DM, Senior Gastroenterologist", hosp: "Apollo Metro GI Institute", distKm: 6.7, eta: "23 mins", fee: "₹850" }
+        ]
+      },
+      {
+        shortName: "Breathing & Airway Sensitivity",
+        plainSummary: "Your persistent cough, wheezing, or dip in oxygen saturation indicates lower airway sensitivity. Antioxidant-rich warm nutrition and gentle chest-opening physical routines help soothe bronchial passages.",
+        dietPlan: [
+          "<strong>Morning:</strong> Warm turmeric, black pepper, and crushed ginger infusion with raw honey.",
+          "<strong>Lunch:</strong> Steamed cruciferous vegetables (broccoli, cabbage), carrots, warm lentil soup, and whole grains rich in magnesium.",
+          "<strong>Evening:</strong> Warm tulsi-mulethi (licorice root) herbal tea with soaked almonds and walnuts (rich in anti-inflammatory Omega-3s).",
+          "<strong>Foods to Avoid:</strong> Cold refrigerated drinks, smoky/charred foods, sulfite-heavy preservatives, and tobacco smoke."
+        ],
+        physicalPlan: [
+          "<strong>Chest-Expansion Posture &amp; Gentle Walk:</strong> 20 minutes of gentle morning walking with shoulder-opening stretches to improve thoracic expansion.",
+          "<strong>Warm Steam &amp; Clean Indoor Air:</strong> Use plain warm steam in the evening and keep sleeping areas free of dust and smoke.",
+          "<strong>Daily Oximetry &amp; Rest Pacing:</strong> Track resting SpO2 morning and evening and avoid cold outdoor exertion."
+        ],
+        specialists: [
+          { name: "Dr. Rajeshwari Menon", spec: "MD, Pulmonology & Chest Medicine", hosp: "Max Respiratory & Thoracic Center", distKm: 1.0, eta: "4 mins", fee: "₹800" },
+          { name: "Dr. Vivek Pulikonda", spec: "MD, Interventional Pulmonologist", hosp: "Citi Chest & Allergy Hospital", distKm: 1.4, eta: "6 mins", fee: "₹750" },
+          { name: "Dr. Samira Khan", spec: "MD, Respiratory & Sleep Medicine", hosp: "Apollo Airway Clinic", distKm: 2.3, eta: "9 mins", fee: "₹700" },
+          { name: "Dr. Ashwin Nair", spec: "DM, Pulmonary & Critical Care", hosp: "Manipal Lung Institute", distKm: 3.5, eta: "13 mins", fee: "₹800" },
+          { name: "Dr. Pallavi Joshi", spec: "MD, Allergy & Asthma Specialist", hosp: "Care Breath Center", distKm: 4.5, eta: "17 mins", fee: "₹650" },
+          { name: "Dr. Gautam Parekh", spec: "DM, Senior Thoracic Specialist", hosp: "KIMS Regional Chest Hub", distKm: 6.6, eta: "22 mins", fee: "₹850" }
+        ]
+      },
+      {
+        shortName: "Hormonal, Urinary & Personal Health Balance",
+        plainSummary: "Your pre-disclosed urinary, pelvic, menstrual/PCOS, or hormonal vitality symptoms point to an endocrine or urogenital imbalance. Sharing these privately here ensures your specialist already knows the full context and can help you in a comfortable, stigma-free consultation.",
+        dietPlan: [
+          "<strong>Hydration &amp; Urinary Flush:</strong> Drink 2.5 to 3 liters of water daily along with unsweetened cranberry or barley water and tender coconut water.",
+          "<strong>Hormone-Balancing Seed Cycling &amp; Zinc:</strong> Include 1 tbsp of ground flaxseeds, pumpkin seeds, and sesame seeds daily (rich in zinc, selenium, and lignans).",
+          "<strong>Low-Glycemic Anti-Inflammatory Meals:</strong> Pair leafy greens, berries, lentil proteins, and healthy fats (avocado, olive oil, ghee) to stabilize insulin and reproductive hormones.",
+          "<strong>Foods to Avoid:</strong> Excess caffeine, refined sugar, artificial sweeteners, and highly processed packaged snacks."
+        ],
+        physicalPlan: [
+          "<strong>Pelvic Floor &amp; Hip Mobility (Butterfly Pose):</strong> 12 minutes of gentle pelvic floor relaxation and hip-opening stretches daily to improve pelvic circulation.",
+          "<strong>30-Minute Stress-Lowering Morning Walk:</strong> Sunlight walk to synchronize circadian and reproductive hormone rhythms.",
+          "<strong>Daily Comfort Habits:</strong> Avoid holding urine for long hours and prioritize 7.5 hours of restful sleep."
+        ],
+        specialists: [
+          { name: "Dr. Meenakshi Rao", spec: "MD, Gynecology, PCOS & Uro-Endocrinology", hosp: "Manipal Women & Endocrine Center", distKm: 1.1, eta: "5 mins", fee: "₹750" },
+          { name: "Dr. Siddharth Kapoor", spec: "MCh, Urology & Andrology Specialist", hosp: "Apex Confidential Uro-Care Clinic", distKm: 1.4, eta: "6 mins", fee: "₹800" },
+          { name: "Dr. Zoya Merchant", spec: "DM, Reproductive Endocrinology", hosp: "Cloudnine Specialty Hub", distKm: 2.2, eta: "8 mins", fee: "₹750" },
+          { name: "Dr. Nandini Varma", spec: "MD, Pelvic & Uro-Gynecology", hosp: "Fernandez Women Clinic", distKm: 3.4, eta: "12 mins", fee: "₹700" },
+          { name: "Dr. Pranav Deshmukh", spec: "MCh, Senior Urologist & Microsurgeon", hosp: "Asian Institute of Nephro-Urology", distKm: 4.8, eta: "18 mins", fee: "₹850" },
+          { name: "Dr. Shalini Krishnan", spec: "DM, Endocrine & Hormonal Wellness", hosp: "Apollo Cradle & Specialty", distKm: 6.4, eta: "21 mins", fee: "₹800" }
+        ]
+      }
+    ];
+
+    let activePatientId = "CB-101";
+    let loginPatientMode = "existing"; // 'existing' or 'new'
+
+    /* =======================================================================
+       CALIBRATED STAGE & CONDITION PREDICTOR
+       Fixes the previous Stage 3 saturation bug so patients span Stage 1, 2, 3!
+       ======================================================================= */
+    function evaluatePatientML(pt) {
+      const xRaw = [
+        pt.age, pt.bmi, pt.glucose, pt.bp, pt.spo2, pt.sleep,
+        pt.thirst, pt.fatigue, pt.chest, pt.digestion,
+        pt.cough, pt.intimate, pt.hormonal, pt.stress, pt.activity
+      ];
+      const mean = ML_ARTIFACTS.mean;
+      const std = ML_ARTIFACTS.std;
+      const W = ML_ARTIFACTS.W_domain;
+
+      const xStd = xRaw.map((v, i) => (v - mean[i]) / std[i]);
+      xStd.push(1.0);
+
+      const logits = W.map(row => row.reduce((acc, wVal, j) => acc + wVal * xStd[j], 0));
+      const maxL = Math.max(...logits);
+      const exps = logits.map(l => Math.exp(l - maxL));
+      const sumE = exps.reduce((a, b) => a + b, 0);
+      const probs = exps.map(e => e / sumE);
+
+      let bestDom = 0;
+      probs.forEach((p, idx) => {
+        if (p > probs[bestDom]) bestDom = idx;
+      });
+
+      // Calibrated Severity Formula (0.0 to 10.0) so Stage 1, Stage 2, and Stage 3 are accurately separated
+      let vitalStrain = 0;
+      if (pt.glucose >= 165) vitalStrain += 3.2;
+      else if (pt.glucose >= 126) vitalStrain += 1.8;
+      else if (pt.glucose >= 110) vitalStrain += 0.8;
+
+      if (pt.bp >= 160) vitalStrain += 3.2;
+      else if (pt.bp >= 140) vitalStrain += 1.9;
+      else if (pt.bp >= 128) vitalStrain += 0.7;
+
+      if (pt.spo2 <= 93.8) vitalStrain += 3.6;
+      else if (pt.spo2 <= 95.5) vitalStrain += 1.6;
+
+      const symArr = [pt.thirst, pt.fatigue, pt.chest, pt.digestion, pt.cough, pt.intimate, pt.hormonal];
+      const maxSym = Math.max(...symArr);
+      const sumSym = symArr.reduce((a, b) => a + b, 0);
+
+      const symStrain = (maxSym * 1.05) + Math.max(0, sumSym - maxSym) * 0.35 + (pt.stress * 0.25);
+      const sevScore = vitalStrain + symStrain;
+
+      let stage = 1;
+      let stageText = "STAGE 1 // EARLY & NATURALLY REVERSIBLE";
+      let stageClass = "stage-1";
+      if (sevScore >= 6.4) {
+        stage = 3;
+        stageText = "STAGE 3 // PRIORITY SPECIALIST CONSULT ADVISED";
+        stageClass = "stage-3";
+      } else if (sevScore >= 3.8) {
+        stage = 2;
+        stageText = "STAGE 2 // MODERATE & REVERSIBLE WITH CARE";
+        stageClass = "stage-2";
+      }
+
+      return {
+        domIdx: bestDom,
+        domName: ML_ARTIFACTS.domains[bestDom],
+        confidencePct: Math.min(98.5, Math.max(82.0, Math.round(probs[bestDom] * 1000) / 10)),
+        probs,
+        stage,
+        stageText,
+        stageClass,
+        care: DOMAIN_CARE_GUIDE[bestDom]
+      };
+    }
+
+    /* =======================================================================
+       UNIFORM MINIMALIST BACKGROUND ANIMATION
+       - Strictly 2 colors from active portal CSS variables (--canvas-c1, --canvas-c2)
+       - Only 2 Top/Upper-Mid ECG Pulse Waveforms + Subtle Vector Heart & Medical Plus (+) Shapes
+       - NO written text blocks at all!
+       ======================================================================= */
+    function initBackgroundAnimation() {
+      const canvas = document.getElementById("bg-anim-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let w = (canvas.width = window.innerWidth);
+      let h = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      // 8 subtle floating vector shapes: alternating 'heart' and 'plus' (no text blocks)
+      const shapes = Array.from({ length: 8 }, (_, i) => ({
+        x: ((i + 0.5) / 8) * w,
+        y: (0.16 + (i % 4) * 0.20) * h,
+        vx: (i % 2 === 0 ? 0.22 : -0.22),
+        vy: (i % 3 === 0 ? 0.15 : -0.15),
+        size: 11 + (i % 2) * 3,
+        type: i % 2 === 0 ? "heart" : "plus"
+      }));
+
+      function drawHeart(cx, cy, size, color) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.beginPath();
+        const s = size * 0.08;
+        ctx.moveTo(0, 4 * s);
+        ctx.bezierCurveTo(0, 1 * s, -5 * s, -4 * s, -10 * s, -4 * s);
+        ctx.bezierCurveTo(-17 * s, -4 * s, -17 * s, 5 * s, -17 * s, 5 * s);
+        ctx.bezierCurveTo(-17 * s, 11 * s, -10 * s, 17 * s, 0, 23 * s);
+        ctx.bezierCurveTo(10 * s, 17 * s, 17 * s, 11 * s, 17 * s, 5 * s);
+        ctx.bezierCurveTo(17 * s, 5 * s, 17 * s, -4 * s, 10 * s, -4 * s);
+        ctx.bezierCurveTo(5 * s, -4 * s, 0, 1 * s, 0, 4 * s);
+        ctx.closePath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawPlus(cx, cy, size, color) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.0;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(-size, 0);
+        ctx.lineTo(size, 0);
+        ctx.moveTo(0, -size);
+        ctx.lineTo(0, size);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function draw(now) {
+        ctx.clearRect(0, 0, w, h);
+        const styles = getComputedStyle(document.documentElement);
+        const col1 = styles.getPropertyValue("--canvas-c1").trim() || "rgba(34, 197, 94, 0.22)";
+        const col2 = styles.getPropertyValue("--canvas-c2").trim() || "rgba(245, 242, 234, 0.14)";
+
+        // 2 Uniform Continuous ECG Pulse Waveforms at Top and Upper-Middle
+        const pulseBands = [
+          { yRatio: 0.12, speed: 0.12, period: 280, phase: 0, amp: 1.0, color: col1 },
+          { yRatio: 0.32, speed: 0.10, period: 320, phase: 110, amp: 0.85, color: col2 }
+        ];
+
+        pulseBands.forEach(pb => {
+          ctx.save();
+          ctx.strokeStyle = pb.color;
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          const baseY = h * pb.yRatio;
+          const offset = (now * pb.speed + pb.phase) % pb.period;
+          for (let x = 0; x <= w; x += 3) {
+            const cx = (x + offset) % pb.period;
+            let dy = 0;
+            if (cx > 80 && cx < 90) dy = -5 * pb.amp;
+            else if (cx >= 90 && cx < 96) dy = 4 * pb.amp;
+            else if (cx >= 96 && cx < 104) dy = -24 * pb.amp;
+            else if (cx >= 104 && cx < 112) dy = 15 * pb.amp;
+            else if (cx >= 112 && cx < 124) dy = -7 * pb.amp;
+            if (x === 0) ctx.moveTo(x, baseY + dy);
+            else ctx.lineTo(x, baseY + dy);
+          }
+          ctx.stroke();
+          ctx.restore();
+        });
+
+        // Uniform Floating Heart & Plus Shapes (Strictly 2 colors, zero written blocks)
+        shapes.forEach((s, idx) => {
+          s.x += s.vx;
+          s.y += s.vy;
+          if (s.x < 40 || s.x > w - 40) s.vx *= -1;
+          if (s.y < 40 || s.y > h - 40) s.vy *= -1;
+
+          const shapeColor = idx % 2 === 0 ? col1 : col2;
+          if (s.type === "heart") {
+            drawHeart(s.x, s.y, s.size, shapeColor);
+          } else {
+            drawPlus(s.x, s.y, s.size * 0.75, shapeColor);
+          }
+        });
+
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    }
+
+    /* =======================================================================
+       PORTAL LOADING MODAL (ONLY AFTER CLICKING LOGIN CTA)
+       ======================================================================= */
+    function triggerLoginPortalModal(btnEl, titleText, subText, targetPortalMode, targetScreenId, onComplete) {
+      if (btnEl) {
+        btnEl.classList.add("expanding");
+        setTimeout(() => btnEl.classList.remove("expanding"), 600);
+      }
+
+      const modal = document.getElementById("portal-loading-modal");
+      const titleEl = document.getElementById("loading-modal-title");
+      const subEl = document.getElementById("loading-modal-sub");
+      const fillEl = document.getElementById("loading-bar-fill");
+
+      titleEl.textContent = titleText;
+      subEl.textContent = subText;
+      fillEl.style.width = "0%";
+      modal.classList.add("active");
+
+      const start = performance.now();
+      const duration = 800;
+
+      function step(now) {
+        const pct = Math.min(100, Math.round(((now - start) / duration) * 100));
+        fillEl.style.width = pct + "%";
+        if (pct < 100) {
+          requestAnimationFrame(step);
+        } else {
+          document.documentElement.setAttribute("data-portal", targetPortalMode);
+          if (targetScreenId) {
+            setWorkspaceHeaderState(targetScreenId !== "screen-landing");
+            document.querySelectorAll(".view-screen").forEach(s => s.classList.remove("active"));
+            document.getElementById(targetScreenId).classList.add("active");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+          if (onComplete) onComplete();
+          setTimeout(() => {
+            modal.classList.remove("active");
+          }, 120);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function setWorkspaceHeaderState(isLoggedIn) {
+      const headerEl = document.getElementById("main-site-header");
+      const logoutBtn = document.getElementById("header-logout-btn");
+      if (isLoggedIn) {
+        headerEl.classList.add("logged-in-freeze");
+        logoutBtn.style.display = "inline-flex";
+      } else {
+        headerEl.classList.remove("logged-in-freeze");
+        logoutBtn.style.display = "none";
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast-box");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 3200);
+    }
+
+    function switchStage1Subtab(part) {
+      const isA = part === "1a";
+      document.getElementById("subtab-stage1a").classList.toggle("active", isA);
+      document.getElementById("subtab-stage1b").classList.toggle("active", !isA);
+      document.getElementById("stage1-part-a").style.display = isA ? "block" : "none";
+      document.getElementById("stage1-part-b").style.display = isA ? "none" : "block";
+    }
+
+    function loadPatientIntoInputs(ptId) {
+      activePatientId = ptId;
+      const pt = PATIENT_PROFILES[ptId];
+      if (!pt) return;
+
+      document.getElementById("in-age").value = pt.age;
+      document.getElementById("in-bmi").value = pt.bmi;
+      document.getElementById("in-glucose").value = pt.glucose;
+      document.getElementById("in-bp").value = pt.bp;
+      document.getElementById("in-spo2").value = pt.spo2;
+      document.getElementById("in-sleep").value = pt.sleep;
+      document.getElementById("in-thirst").value = pt.thirst;
+      document.getElementById("in-fatigue").value = pt.fatigue;
+      document.getElementById("in-chest").value = pt.chest;
+      document.getElementById("in-digestion").value = pt.digestion;
+      document.getElementById("in-cough").value = pt.cough;
+      document.getElementById("in-activity").value = pt.activity;
+      document.getElementById("in-intimate").value = pt.intimate;
+      document.getElementById("in-hormonal").value = pt.hormonal;
+      document.getElementById("in-stress").value = pt.stress;
+      document.getElementById("in-pref-gender").value = pt.prefGender;
+      document.getElementById("in-private-note").value = pt.privateNote;
+
+      // Critical inputs locked for existing verified records, unlocked for newly registered patient
+      const lockCritical = Boolean(pt.isExistingVerified);
+      ["in-age", "in-bmi", "in-glucose", "in-bp", "in-spo2"].forEach(cid => {
+        document.getElementById(cid).disabled = lockCritical;
+      });
+      document.getElementById("pt-record-lock-status").textContent = lockCritical
+        ? "Verified Patient Record (Critical Vitals Protected)"
+        : "New Patient Assessment (All Inputs Editable)";
+
+      refreshAllPortals();
+    }
+
+    function syncInputsToActivePatient() {
+      const pt = PATIENT_PROFILES[activePatientId];
+      if (!pt) return;
+      pt.age = parseInt(document.getElementById("in-age").value, 10) || 45;
+      pt.bmi = parseFloat(document.getElementById("in-bmi").value) || 24.0;
+      pt.glucose = parseInt(document.getElementById("in-glucose").value, 10) || 95;
+      pt.bp = parseInt(document.getElementById("in-bp").value, 10) || 120;
+      pt.spo2 = parseFloat(document.getElementById("in-spo2").value) || 97.5;
+      pt.sleep = parseFloat(document.getElementById("in-sleep").value) || 7.0;
+      pt.thirst = parseInt(document.getElementById("in-thirst").value, 10) || 0;
+      pt.fatigue = parseInt(document.getElementById("in-fatigue").value, 10) || 0;
+      pt.chest = parseInt(document.getElementById("in-chest").value, 10) || 0;
+      pt.digestion = parseInt(document.getElementById("in-digestion").value, 10) || 0;
+      pt.cough = parseInt(document.getElementById("in-cough").value, 10) || 0;
+      pt.activity = parseInt(document.getElementById("in-activity").value, 10) || 0;
+      pt.intimate = parseInt(document.getElementById("in-intimate").value, 10) || 0;
+      pt.hormonal = parseInt(document.getElementById("in-hormonal").value, 10) || 0;
+      pt.stress = parseInt(document.getElementById("in-stress").value, 10) || 0;
+      pt.prefGender = document.getElementById("in-pref-gender").value;
+      pt.privateNote = document.getElementById("in-private-note").value;
+
+      // Numeric inputs reflect their values directly
+    }
+
+    function buildGlobalHospitalDossierHTML(pt, mlRes) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      return `
+        <div class="pdf-header-row">
+          <div>
+            <div style="font-size: 11px; font-weight: 800; color: #15803D; letter-spacing: 0.04em;">WHO / HL7 INTERNATIONAL PATIENT SUMMARY (IPS) STANDARD</div>
+            <h3 style="font-size: 21px; font-weight: 800; color: #0F172A; margin-top: 2px;">CureBridge Pre-Consultation Clinical Dossier</h3>
+            <div style="font-size: 12px; color: #475569;">Document ID: ${pt.passkey} • Generated: ${todayStr} • Neighborhood: ${pt.city}</div>
+          </div>
+          <div style="text-align: right;">
+            <span class="stage-pill" style="background: #F1F5F9; color: #0F172A; border-color: #94A3B8;">${mlRes.stageText}</span>
+            <div style="font-size: 11.5px; font-weight: 600; color: #334155; margin-top: 6px;">Appointment: ${pt.apptStatus} (${pt.apptSlot})</div>
+          </div>
+        </div>
+
+        <div class="pdf-grid">
+          <div class="pdf-box">
+            <div class="pdf-box-title">01. Patient Demographics &amp; Vital Signs</div>
+            <div style="font-size: 12.5px; line-height: 1.7;">
+              <strong>Patient Name:</strong> ${pt.name} (${pt.age}Y / ${pt.sex}) • <strong>Email:</strong> ${pt.email}<br/>
+              <strong>Fasting Blood Glucose:</strong> ${pt.glucose} mg/dL | <strong>Systolic BP:</strong> ${pt.bp} mmHg<br/>
+              <strong>Blood Oxygen (SpO2):</strong> ${pt.spo2.toFixed(1)}% | <strong>BMI:</strong> ${pt.bmi.toFixed(1)} kg/m2 | <strong>Sleep:</strong> ${pt.sleep} hrs
+            </div>
+          </div>
+
+          <div class="pdf-box">
+            <div class="pdf-box-title">02. Condition Stage Assessment &amp; Specialist Match</div>
+            <div style="font-size: 12.5px; line-height: 1.7;">
+              <strong>Primary Health Focus:</strong> ${mlRes.care.shortName}<br/>
+              <strong>Assigned Specialist:</strong> ${pt.selectedDocName}<br/>
+              <strong>Hospital Facility:</strong> ${pt.selectedDocHosp}
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-box" style="margin-bottom: 14px; border-color: #64748B;">
+          <div class="pdf-box-title">03. Confidential Patient Pre-Disclosure (Shared to Bridge Face-to-Face Hesitation)</div>
+          <div style="font-size: 12.5px; color: #0F172A; margin-bottom: 4px;">
+            "${pt.privateNote}"
+          </div>
+          <div style="font-size: 11.5px; font-weight: 600; color: #475569;">
+            Consultation Preference: ${pt.prefGender}
+          </div>
+        </div>
+
+        <div class="pdf-grid">
+          <div class="pdf-box">
+            <div class="pdf-box-title">04. Drug-Free Dietary Care Plan</div>
+            <ul class="diet-list">${mlRes.care.dietPlan.map(item => `<li>${item}</li>`).join("")}</ul>
+          </div>
+          <div class="pdf-box">
+            <div class="pdf-box-title">05. Natural Physical Recovery &amp; Doctor Guidance</div>
+            <ul class="diet-list">${mlRes.care.physicalPlan.map(item => `<li>${item}</li>`).join("")}</ul>
+            <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #CBD5E1; font-size: 12px; color: #0F172A;">
+              <strong>Doctor Pre-Visit Note:</strong> ${pt.docNote}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFilteredSpecialists(pt, mlRes) {
+      const maxKm = parseFloat(document.getElementById("radar-radius-select").value) || 3.0;
+      document.getElementById("radar-sector-subtitle").textContent = `Showing verified specialists within ${maxKm.toFixed(1)} km of ${pt.city}`;
+
+      const allSpecs = mlRes.care.specialists;
+      const filteredSpecs = allSpecs.filter(sp => sp.distKm <= maxKm);
+
+      document.getElementById("radar-count-banner").textContent = `Showing ${filteredSpecs.length} of ${allSpecs.length} specialists within ${maxKm.toFixed(1)} km`;
+
+      const specContainer = document.getElementById("specialist-cards-container");
+      specContainer.innerHTML = filteredSpecs.map((sp, idx) => `
+        <div class="doc-card">
+          <div>
+            <div class="feature-kicker">${sp.distKm.toFixed(1)} KM AWAY • ${sp.eta} DRIVE ${idx === 0 ? '• CLOSEST MATCH' : ''}</div>
+            <div style="font-size: 14.5px; font-weight: 700; color: var(--text-primary); margin: 2px 0;">${sp.name}</div>
+            <div style="font-size: 12px; color: var(--text-secondary);">${sp.spec} • ${sp.hosp}</div>
+            <div style="font-size: 11.5px; font-weight: 700; color: var(--accent); margin-top: 4px;">Consultation Fee: ${sp.fee}</div>
+          </div>
+          <button type="button" class="mini-btn" style="padding: 9px 14px; background: var(--accent); color: var(--accent-text); font-weight: 700; border: none; flex-shrink: 0;" data-book-doc="${sp.name} (${sp.spec})" data-book-hosp="${sp.hosp} (${sp.distKm.toFixed(1)} km)">
+            Consult &amp; Book Slot
+          </button>
+        </div>
+      `).join("");
+
+      specContainer.querySelectorAll("[data-book-doc]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          pt.selectedDocName = btn.getAttribute("data-book-doc");
+          pt.selectedDocHosp = btn.getAttribute("data-book-hosp");
+          pt.apptStatus = "PENDING DOCTOR APPROVAL";
+          pt.apptSlot = "Requested: Tomorrow, 11:00 AM";
+          refreshAllPortals();
+          showToast(`Appointment requested with ${pt.selectedDocName}. Ready for approval in Doctor Portal.`);
+        });
+      });
+    }
+
+    function refreshAllPortals() {
+      syncInputsToActivePatient();
+      const pt = PATIENT_PROFILES[activePatientId];
+      const mlRes = evaluatePatientML(pt);
+
+      // Update Patient Sidebar Top Card
+      document.getElementById("pt-sidebar-name").textContent = pt.name;
+      document.getElementById("pt-sidebar-meta").textContent = `${pt.age}Y • ${pt.sex} • ${pt.city}`;
+      document.getElementById("pt-sidebar-email").textContent = pt.email;
+      document.getElementById("pt-sidebar-passkey").textContent = pt.passkey;
+
+      // Update Patient Overview Tab
+      document.getElementById("pt-welcome-heading").textContent = `Hello there, ${pt.name}`;
+      const ovBadge = document.getElementById("pt-overview-stage-pill");
+      ovBadge.className = `stage-pill ${mlRes.stageClass}`;
+      ovBadge.textContent = mlRes.stageText;
+      document.getElementById("pt-overview-summary-text").textContent = mlRes.care.plainSummary;
+      document.getElementById("pt-ov-domain").textContent = mlRes.care.shortName;
+      document.getElementById("pt-ov-conf").textContent = `Stage ${mlRes.stage} Assessment`;
+      document.getElementById("pt-ov-spec").textContent = mlRes.care.specialists[0].spec.split(", ")[1] || mlRes.care.specialists[0].spec;
+      document.getElementById("pt-ov-dist").textContent = `${mlRes.care.specialists[0].name} (${mlRes.care.specialists[0].distKm} km)`;
+      document.getElementById("pt-ov-appt-status").textContent = pt.apptStatus;
+      document.getElementById("pt-ov-appt-status").style.color = pt.apptStatus.includes("APPROVED") ? "var(--stage-1)" : "var(--stage-2)";
+      document.getElementById("pt-ov-appt-time").textContent = pt.apptSlot;
+
+      // Update Step 2 Results inside Patient Intake
+      document.getElementById("res-domain-title").textContent = mlRes.care.shortName;
+      const stgBadge = document.getElementById("res-stage-badge");
+      stgBadge.className = `stage-pill ${mlRes.stageClass}`;
+      stgBadge.textContent = mlRes.stageText;
+      document.getElementById("res-plain-explanation").textContent = mlRes.care.plainSummary;
+      document.getElementById("res-diet-list").innerHTML = mlRes.care.dietPlan.map(d => `<li>${d}</li>`).join("");
+      document.getElementById("res-physical-list").innerHTML = mlRes.care.physicalPlan.map(p => `<li>${p}</li>`).join("");
+
+      // Render Filtered Specialists
+      renderFilteredSpecialists(pt, mlRes);
+
+      // Update Global Hospital Dossier PDF in all PDF containers
+      const dossierHTML = buildGlobalHospitalDossierHTML(pt, mlRes);
+      document.getElementById("printable-dossier-area").innerHTML = dossierHTML;
+            document.getElementById("doc-printable-dossier-area").innerHTML = dossierHTML;
+
+      // Update Doctor Console
+      document.getElementById("doc-sidebar-patient").textContent = `Active Case: ${pt.name}`;
+      if (document.querySelector(`#doc-queue-switcher option[value="${activePatientId}"]`)) {
+        document.getElementById("doc-queue-switcher").value = activePatientId;
+      }
+      document.getElementById("doc-detail-heading").textContent = `Patient Clinical Dossier: ${pt.name} (${pt.passkey})`;
+      const docStg = document.getElementById("doc-detail-stage");
+      docStg.className = `stage-pill ${mlRes.stageClass}`;
+      docStg.textContent = mlRes.stageText;
+      document.getElementById("doc-private-note-box").textContent = `"${pt.privateNote}"`;
+      document.getElementById("doc-comm-pref-box").textContent = `Patient Communication Preference: ${pt.prefGender} | Intimate/Urinary Tier: ${pt.intimate}/3 | Hormonal Tier: ${pt.hormonal}/3`;
+      document.getElementById("doc-clinical-note-input").value = pt.docNote;
+
+      document.getElementById("doc-vitals-strip").innerHTML = `
+        <div class="metric-tile">
+          <div class="metric-lbl">Glycemic &amp; BMI</div>
+          <div class="metric-val">${pt.glucose} mg/dL</div>
+          <div class="metric-sub">BMI: ${pt.bmi.toFixed(1)} kg/m2</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-lbl">Vascular &amp; SpO2</div>
+          <div class="metric-val">${pt.bp} mmHg</div>
+          <div class="metric-sub">Resting SpO2: ${pt.spo2.toFixed(1)}%</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-lbl">Appointment Status</div>
+          <div class="metric-val" style="color: ${pt.apptStatus.includes('APPROVED') ? 'var(--stage-1)' : 'var(--stage-2)'};">${pt.apptStatus}</div>
+          <div class="metric-sub">${pt.apptSlot}</div>
+        </div>
+      `;
+
+      // Populate Doctor Queue Table (Show the 5 queue patients + CB-106 if active)
+      const queueList = Object.values(PATIENT_PROFILES).filter(p => p.id !== "CB-106" || activePatientId === "CB-106");
+      const qTbody = document.getElementById("doc-queue-tbody");
+      qTbody.innerHTML = queueList.map(pItem => {
+        const pMl = evaluatePatientML(pItem);
+        const isApproved = pItem.apptStatus === "APPROVED";
+        return `
+          <tr style="${pItem.id === activePatientId ? 'background: var(--accent-soft);' : ''}">
+            <td style="font-weight: 700;">${pItem.passkey}</td>
+            <td><strong>${pItem.name}</strong> (${pItem.age}${pItem.sex[0]})</td>
+            <td>${pMl.care.shortName}<br/><span class="stage-pill ${pMl.stageClass}" style="margin-top:3px;">Stage ${pMl.stage}</span></td>
+            <td style="max-width: 240px; font-size: 12px; color: var(--text-secondary);">"${pItem.privateNote.slice(0, 78)}..."</td>
+            <td>${pItem.selectedDocName.split(" (")[0]}<br/><span style="font-size: 11.5px; color: var(--text-secondary);">${pItem.apptSlot}</span></td>
+            <td style="font-weight: 700; color: ${isApproved ? 'var(--stage-1)' : 'var(--stage-2)'};">${pItem.apptStatus}</td>
+            <td>
+              <div style="display: flex; gap: 6px;">
+                <button type="button" class="mini-btn" style="background: var(--accent); color: var(--accent-text); border: none; font-weight: 700;" data-approve-id="${pItem.id}">Approve</button>
+                <button type="button" class="mini-btn" data-inspect-id="${pItem.id}">Open Dossier</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      qTbody.querySelectorAll("[data-approve-id]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const pid = btn.getAttribute("data-approve-id");
+          PATIENT_PROFILES[pid].apptStatus = "APPROVED";
+          PATIENT_PROFILES[pid].apptSlot = "Confirmed: Tomorrow, 10:30 AM";
+          loadPatientIntoInputs(pid);
+          showToast(`Approved appointment for ${PATIENT_PROFILES[pid].name} (${PATIENT_PROFILES[pid].passkey}).`);
+        });
+      });
+
+      qTbody.querySelectorAll("[data-inspect-id]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const pid = btn.getAttribute("data-inspect-id");
+          loadPatientIntoInputs(pid);
+          activateDoctorTab("doc-pane-profile");
+        });
+      });
+    }
+
+    function activatePatientTab(tabId) {
+      document.querySelectorAll("[data-pt-tab]").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-pt-tab") === tabId);
+      });
+      document.querySelectorAll("[data-pt-compact]").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-pt-compact") === tabId);
+      });
+      document.querySelectorAll("#screen-patient .sub-pane").forEach(p => {
+        p.classList.toggle("active", p.id === tabId);
+      });
+    }
+
+    function activateDoctorTab(tabId) {
+      document.querySelectorAll("[data-doc-tab]").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-doc-tab") === tabId);
+      });
+      document.querySelectorAll("[data-doc-compact]").forEach(b => {
+        b.classList.toggle("active", b.getAttribute("data-doc-compact") === tabId);
+      });
+      document.querySelectorAll("#screen-doctor .sub-pane").forEach(p => {
+        p.classList.toggle("active", p.id === tabId);
+      });
+    }
+
+    function switchScreenDirect(screenId) {
+      setWorkspaceHeaderState(screenId !== "screen-landing");
+      document.querySelectorAll(".view-screen").forEach(s => s.classList.remove("active"));
+      document.getElementById(screenId).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function triggerFieldShakeError(errElId) {
+      const el = document.getElementById(errElId);
+      el.classList.remove("visible");
+      void el.offsetWidth; // trigger reflow to restart shake animation
+      el.classList.add("visible");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initBackgroundAnimation();
+      loadPatientIntoInputs("CB-101");
+
+      const pillPt = document.getElementById("pill-patient-mode");
+      const pillDoc = document.getElementById("pill-doctor-mode");
+      const cardPt = document.getElementById("auth-patient-card");
+      const cardDoc = document.getElementById("auth-doctor-card");
+
+      // Header Pill Switch on Home Page: Smoothly changes portal palette and login box WITHOUT loading pop-up!
+      pillPt.addEventListener("click", () => {
+        pillPt.classList.add("active");
+        pillDoc.classList.remove("active");
+        document.documentElement.setAttribute("data-portal", "patient");
+        document.getElementById("header-portal-badge").textContent = "Patient Care Portal";
+        cardPt.style.display = "block";
+        cardDoc.style.display = "none";
+      });
+
+      pillDoc.addEventListener("click", () => {
+        pillDoc.classList.add("active");
+        pillPt.classList.remove("active");
+        document.documentElement.setAttribute("data-portal", "doctor");
+        document.getElementById("header-portal-badge").textContent = "Specialist Portal";
+        cardDoc.style.display = "block";
+        cardPt.style.display = "none";
+      });
+
+      // Header Logo or Logout Icon Click -> Return to Landing Screen
+      document.getElementById("header-home-btn").addEventListener("click", () => {
+        switchScreenDirect("screen-landing");
+      });
+      document.getElementById("header-logout-btn").addEventListener("click", () => {
+        switchScreenDirect("screen-landing");
+        showToast("Logged out to CureBridge Home.");
+      });
+
+      // Flexible Collapsible Sidebar Toggles
+      document.getElementById("pt-collapse-btn").addEventListener("click", () => {
+        document.getElementById("pt-workspace-shell").classList.toggle("collapsed");
+      });
+      document.getElementById("doc-collapse-btn").addEventListener("click", () => {
+        document.getElementById("doc-workspace-shell").classList.toggle("collapsed");
+      });
+
+      // Existing vs New Patient Inner Tabs on Login Card
+      document.getElementById("tab-existing-pt").addEventListener("click", () => {
+        loginPatientMode = "existing";
+        document.getElementById("tab-existing-pt").classList.add("active");
+        document.getElementById("tab-new-pt").classList.remove("active");
+        document.getElementById("existing-pt-select-wrap").style.display = "block";
+        const pid = document.getElementById("landing-patient-select").value;
+        const pt = PATIENT_PROFILES[pid];
+        if (pt) {
+          document.getElementById("landing-pt-name").value = pt.name;
+          document.getElementById("landing-pt-email").value = pt.email;
+        }
+        document.getElementById("err-pt-name").classList.remove("visible");
+        document.getElementById("err-pt-email").classList.remove("visible");
+      });
+
+      document.getElementById("tab-new-pt").addEventListener("click", () => {
+        loginPatientMode = "new";
+        document.getElementById("tab-new-pt").classList.add("active");
+        document.getElementById("tab-existing-pt").classList.remove("active");
+        document.getElementById("existing-pt-select-wrap").style.display = "none";
+        document.getElementById("landing-pt-name").value = "";
+        document.getElementById("landing-pt-email").value = "";
+        document.getElementById("err-pt-name").classList.remove("visible");
+        document.getElementById("err-pt-email").classList.remove("visible");
+      });
+
+      document.getElementById("landing-patient-select").addEventListener("change", (e) => {
+        const pid = e.target.value;
+        const pt = PATIENT_PROFILES[pid];
+        if (pt) {
+          document.getElementById("landing-pt-name").value = pt.name;
+          document.getElementById("landing-pt-email").value = pt.email;
+          document.getElementById("err-pt-name").classList.remove("visible");
+          document.getElementById("err-pt-email").classList.remove("visible");
+          loadPatientIntoInputs(pid);
+        }
+      });
+
+      // Launch Patient Workspace CTA (Shaky Exclamation Inline Validation + Post-Login Pop-Up)
+      const launchPtBtn = document.getElementById("launch-patient-workspace-btn");
+      launchPtBtn.addEventListener("click", () => {
+        const enteredName = document.getElementById("landing-pt-name").value.trim();
+        const enteredEmail = document.getElementById("landing-pt-email").value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        document.getElementById("err-pt-name").classList.remove("visible");
+        document.getElementById("err-pt-email").classList.remove("visible");
+
+        let hasErr = false;
+        if (!enteredName) {
+          triggerFieldShakeError("err-pt-name");
+          hasErr = true;
+        }
+        if (!enteredEmail || !emailRegex.test(enteredEmail)) {
+          triggerFieldShakeError("err-pt-email");
+          hasErr = true;
+        }
+        if (hasErr) return;
+
+        if (loginPatientMode === "new") {
+          activePatientId = "CB-106";
+          PATIENT_PROFILES["CB-106"].name = enteredName;
+          PATIENT_PROFILES["CB-106"].email = enteredEmail;
+          loadPatientIntoInputs("CB-106");
+        } else {
+          const pid = document.getElementById("landing-patient-select").value;
+          activePatientId = pid;
+          PATIENT_PROFILES[pid].name = enteredName;
+          PATIENT_PROFILES[pid].email = enteredEmail;
+          loadPatientIntoInputs(pid);
+        }
+
+        triggerLoginPortalModal(
+          launchPtBtn,
+          `Opening Patient Workspace for ${PATIENT_PROFILES[activePatientId].name}...`,
+          "Calibrating condition stage, drug-free dietary plan & local specialist directory",
+          "patient",
+          "screen-patient",
+          () => {
+            activatePatientTab("pt-pane-overview");
+            showToast(`PATIENT PROFILE LOADED: ${PATIENT_PROFILES[activePatientId].name} (${PATIENT_PROFILES[activePatientId].passkey})`);
+          }
+        );
+      });
+
+      // Launch Doctor Workspace CTA (Shaky Exclamation Inline Validation + Post-Login Pop-Up)
+      const launchDocBtn = document.getElementById("launch-doctor-workspace-btn");
+      launchDocBtn.addEventListener("click", () => {
+        const docName = document.getElementById("landing-doc-name").value.trim();
+        const docEmail = document.getElementById("landing-doc-email").value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        document.getElementById("err-doc-name").classList.remove("visible");
+        document.getElementById("err-doc-email").classList.remove("visible");
+
+        let hasErr = false;
+        if (!docName) {
+          triggerFieldShakeError("err-doc-name");
+          hasErr = true;
+        }
+        if (!docEmail || !emailRegex.test(docEmail)) {
+          triggerFieldShakeError("err-doc-email");
+          hasErr = true;
+        }
+        if (hasErr) return;
+
+        document.getElementById("doc-sidebar-title").textContent = docName;
+        document.getElementById("doc-sidebar-email").textContent = docEmail;
+
+        const pid = document.getElementById("landing-doc-pt-select").value;
+        loadPatientIntoInputs(pid);
+        triggerLoginPortalModal(
+          launchDocBtn,
+          "Authenticating Medical Practitioner Desk...",
+          `Loading clinical triage queue and pre-disclosed dossier for ${PATIENT_PROFILES[pid].name}`,
+          "doctor",
+          "screen-doctor",
+          () => {
+            activateDoctorTab("doc-pane-overview");
+            showToast(`DOCTOR CONSOLE ACTIVE: Reviewing ${PATIENT_PROFILES[pid].name} (${PATIENT_PROFILES[pid].passkey})`);
+          }
+        );
+      });
+
+      // Dynamic Radius Dropdown Listener
+      document.getElementById("radar-radius-select").addEventListener("change", () => {
+        const pt = PATIENT_PROFILES[activePatientId];
+        const mlRes = evaluatePatientML(pt);
+        renderFilteredSpecialists(pt, mlRes);
+      });
+
+      // Patient Left Sidebar Navigation (Expanded & Compact Rail)
+      document.querySelectorAll("[data-pt-tab]").forEach(btn => {
+        btn.addEventListener("click", () => activatePatientTab(btn.getAttribute("data-pt-tab")));
+      });
+      document.querySelectorAll("[data-pt-compact]").forEach(btn => {
+        btn.addEventListener("click", () => activatePatientTab(btn.getAttribute("data-pt-compact")));
+      });
+
+      // Step 01 -> Step 02 (Separate Natural Diet & Exercise) -> Step 03 (Doctors) / Step 04 (PDF)
+      document.getElementById("goto-step-2-btn").addEventListener("click", () => {
+        refreshAllPortals();
+        activatePatientTab("pt-pane-diet");
+      });
+      document.getElementById("goto-doctors-tab-btn").addEventListener("click", () => {
+        activatePatientTab("pt-pane-doctors");
+      });
+      document.getElementById("goto-pdf-step-btn").addEventListener("click", () => {
+        refreshAllPortals();
+        activatePatientTab("pt-pane-pdf");
+      });
+
+      // Live Input Listeners
+      [
+        "in-age", "in-bmi", "in-glucose", "in-bp", "in-spo2", "in-sleep",
+        "in-thirst", "in-fatigue", "in-chest", "in-digestion", "in-cough",
+        "in-activity", "in-intimate", "in-hormonal", "in-stress", "in-pref-gender", "in-private-note"
+      ].forEach(id => {
+        document.getElementById(id).addEventListener("input", () => refreshAllPortals());
+      });
+
+      // Doctor Left Sidebar Navigation (Expanded & Compact Rail)
+      document.querySelectorAll("[data-doc-tab]").forEach(btn => {
+        btn.addEventListener("click", () => activateDoctorTab(btn.getAttribute("data-doc-tab")));
+      });
+      document.querySelectorAll("[data-doc-compact]").forEach(btn => {
+        btn.addEventListener("click", () => activateDoctorTab(btn.getAttribute("data-doc-compact")));
+      });
+
+      document.getElementById("doc-queue-switcher").addEventListener("change", (e) => {
+        loadPatientIntoInputs(e.target.value);
+      });
+
+      // Doctor Approve & Reschedule Buttons
+      document.getElementById("doc-approve-current-btn").addEventListener("click", () => {
+        const pt = PATIENT_PROFILES[activePatientId];
+        pt.apptStatus = "APPROVED";
+        pt.apptSlot = "Confirmed: Tomorrow, 10:30 AM";
+        pt.docNote = document.getElementById("doc-clinical-note-input").value;
+        refreshAllPortals();
+        showToast(`Approved appointment and sent clinical note to ${pt.name}.`);
+      });
+
+      document.getElementById("doc-reschedule-current-btn").addEventListener("click", () => {
+        const pt = PATIENT_PROFILES[activePatientId];
+        pt.apptStatus = "RESCHEDULED BY DOCTOR";
+        pt.apptSlot = "New Slot: Next Day, 11:00 AM";
+        pt.docNote = document.getElementById("doc-clinical-note-input").value;
+        refreshAllPortals();
+        showToast(`Updated appointment slot for ${pt.name}.`);
+      });
+
+      // Copy Passkey
+      document.getElementById("copy-passkey-btn").addEventListener("click", () => {
+        const code = document.getElementById("pt-sidebar-passkey").textContent;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).catch(() => {});
+        }
+        showToast(`Copied Health Handshake Key: ${code}`);
+      });
+
+      // Print / Save PDF Buttons
+      document.getElementById("print-pdf-btn").addEventListener("click", () => window.print());
+      document.getElementById("doc-print-pdf-btn").addEventListener("click", () => window.print());
+
+      // Light / Dark Mode Sun & Moon Icon Toggle
+      document.getElementById("theme-toggle-btn").addEventListener("click", () => {
+        const htmlEl = document.documentElement;
+        const isDark = htmlEl.getAttribute("data-theme") === "dark";
+        const nextTheme = isDark ? "light" : "dark";
+        htmlEl.setAttribute("data-theme", nextTheme);
+        document.getElementById("theme-icon-sun").style.display = nextTheme === "light" ? "block" : "none";
+        document.getElementById("theme-icon-moon").style.display = nextTheme === "dark" ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
