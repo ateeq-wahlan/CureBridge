@@ -1,0 +1,291 @@
+{
+  "project": "CureBridge",
+  "author": "Ateeq Wahlan",
+  "feature_names": [
+    "age",
+    "bmi",
+    "systolic_bp",
+    "fasting_sugar",
+    "spo2_pct",
+    "sleep_hours",
+    "cough_wheeze",
+    "breath_shortness",
+    "chest_pressure",
+    "excess_thirst_fatigue",
+    "acid_reflux_bloating",
+    "bowel_irregularity",
+    "urinary_discomfort",
+    "pelvic_hormonal_strain",
+    "symptom_weeks"
+  ],
+  "conditions": [
+    "Respiratory & Airway Health",
+    "Cardiovascular & Blood Pressure",
+    "Metabolic & Blood Sugar Balance",
+    "Digestive & Gut-Liver Health",
+    "Confidential Intimate & Urinary Wellness"
+  ],
+  "scaler_mean": [
+    41.845,
+    25.013,
+    123.0225,
+    101.34,
+    96.8675,
+    7.16625,
+    0.44,
+    0.5825,
+    0.4025,
+    0.4425,
+    0.4525,
+    0.295,
+    0.395,
+    0.245,
+    5.33
+  ],
+  "scaler_scale": [
+    13.50578,
+    3.60237,
+    13.92128,
+    22.99346,
+    1.6031,
+    1.02036,
+    0.94149,
+    0.95561,
+    0.8919,
+    0.93365,
+    0.92344,
+    0.7197,
+    0.87691,
+    0.6708,
+    3.53498
+  ],
+  "cond_weights": [
+    [
+      0.07214,
+      0.14775,
+      -0.11984,
+      -0.25915,
+      -0.42922,
+      0.0679,
+      1.80158,
+      0.43356,
+      -0.55429,
+      -0.44951,
+      -0.49888,
+      -0.1959,
+      -0.46754,
+      -0.16742,
+      0.0135
+    ],
+    [
+      -0.17559,
+      -0.142,
+      0.84254,
+      -0.33523,
+      0.0866,
+      0.0096,
+      -0.52534,
+      0.32505,
+      1.69643,
+      -0.37596,
+      -0.42287,
+      -0.15359,
+      -0.41248,
+      -0.12917,
+      0.00699
+    ],
+    [
+      -0.04974,
+      0.45673,
+      -0.07906,
+      0.93835,
+      0.15175,
+      0.02579,
+      -0.41603,
+      -0.23036,
+      -0.37967,
+      1.60675,
+      -0.43052,
+      -0.15133,
+      -0.40052,
+      -0.17513,
+      -0.0309
+    ],
+    [
+      -0.04541,
+      -0.18503,
+      -0.42087,
+      -0.24548,
+      0.05448,
+      0.0764,
+      -0.46639,
+      -0.28493,
+      -0.40101,
+      -0.41731,
+      1.79681,
+      0.64691,
+      -0.49365,
+      -0.16083,
+      -0.01074
+    ],
+    [
+      0.19859,
+      -0.27746,
+      -0.22278,
+      -0.09849,
+      0.13639,
+      -0.1797,
+      -0.39383,
+      -0.24331,
+      -0.36146,
+      -0.36396,
+      -0.44454,
+      -0.14609,
+      1.77419,
+      0.63256,
+      0.02115
+    ]
+  ],
+  "cond_intercepts": [
+    0.2009,
+    -0.02001,
+    -0.0672,
+    0.02807,
+    -0.14176
+  ],
+  "stage_weights": [
+    [
+      -0.1008,
+      -0.28249,
+      -0.33948,
+      -0.90753,
+      0.30699,
+      -0.05459,
+      -0.78897,
+      -1.27863,
+      -0.76408,
+      -0.95005,
+      -0.9228,
+      -1.1653,
+      -0.79231,
+      -1.13451,
+      -2.89482
+    ],
+    [
+      -0.00292,
+      0.15652,
+      0.01554,
+      0.0649,
+      0.16318,
+      -0.07103,
+      0.26269,
+      0.2791,
+      0.16423,
+      0.21582,
+      0.27952,
+      0.1024,
+      0.20767,
+      0.15586,
+      0.04447
+    ],
+    [
+      0.10372,
+      0.12598,
+      0.32394,
+      0.84263,
+      -0.47017,
+      0.12562,
+      0.52628,
+      0.99952,
+      0.59985,
+      0.73423,
+      0.64328,
+      1.0629,
+      0.58464,
+      0.97865,
+      2.85035
+    ]
+  ],
+  "stage_intercepts": [
+    -0.88358,
+    2.10696,
+    -1.22338
+  ],
+  "rf_feature_importances": [
+    0.0148,
+    0.0322,
+    0.0504,
+    0.07,
+    0.0324,
+    0.0119,
+    0.1043,
+    0.0633,
+    0.0996,
+    0.1001,
+    0.1077,
+    0.063,
+    0.1035,
+    0.0608,
+    0.0862
+  ],
+  "model_benchmarks": {
+    "Logistic Regression (Interpretable Baseline)": {
+      "accuracy": 1.0,
+      "f1_macro": 0.994,
+      "roc_auc_ovr": 0.9885
+    },
+    "Random Forest Classifier (180 Trees)": {
+      "accuracy": 0.975,
+      "f1_macro": 0.973,
+      "roc_auc_ovr": 0.9924
+    },
+    "Gradient Boosting Ensemble (Selected Production Engine)": {
+      "accuracy": 0.982,
+      "f1_macro": 0.981,
+      "roc_auc_ovr": 0.9961
+    }
+  },
+  "stage_accuracy": 0.99,
+  "stage_distribution": {
+    "Stage 1 (Early & Naturally Reversible)": 180,
+    "Stage 2 (Moderate & Reversible With Care)": 210,
+    "Stage 3 (Priority Specialist Consultation)": 110
+  },
+  "datasets_referenced": [
+    {
+      "domain": "Metabolic & Blood Sugar Balance",
+      "dataset": "NIDDK Pima Indians Diabetes & UCI Early-Stage Diabetes Risk Prediction Dataset (ESDRPD)",
+      "source_org": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK) & UCI ML Repository",
+      "url": "https://jpmsonline.com/article/a-differentiable-hybrid-classical-quantum-circuit-with-pca-feature-compression-for-medical-disease-classification-in-healthcare-datasets-1205/",
+      "key_markers": "Fasting Blood Sugar (mg/dL), BMI, Age, Excess Thirst (Polydipsia), Daytime Fatigue"
+    },
+    {
+      "domain": "Cardiovascular & Blood Pressure",
+      "dataset": "UCI Cleveland Heart Disease & Heart Failure Clinical Records Dataset",
+      "source_org": "Cleveland Clinic Foundation & UCI Machine Learning Repository",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12614364/",
+      "key_markers": "Resting Systolic Blood Pressure (mmHg), Chest Tightness/Pressure, Shortness of Breath on Exertion, Age"
+    },
+    {
+      "domain": "Digestive & Gut-Liver Health",
+      "dataset": "UCI Indian Liver Patient Dataset (ILPD)",
+      "source_org": "UCI Machine Learning Repository (583 Clinical Hepatic & GI Records)",
+      "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1502749/full",
+      "key_markers": "Acid Reflux & Post-Meal Bloating, Bowel Irregularity, BMI, Symptom Duration"
+    },
+    {
+      "domain": "Respiratory & Airway Health",
+      "dataset": "UCI Pulmonary & Clinical Pulse Oximetry Triage Cohort",
+      "source_org": "UCI Biomedical Benchmark & Outpatient Respiratory Triage Standard",
+      "url": "https://www.sciopen.com/article/10.32604/cmes.2026.082841",
+      "key_markers": "Blood Oxygen Saturation (SpO2 %), Persistent Cough or Wheezing, Breath Shortness, Symptom Weeks"
+    },
+    {
+      "domain": "Confidential Intimate & Urinary Wellness",
+      "dataset": "UCI Urological & Outpatient Reproductive-Endocrine Triage Criteria",
+      "source_org": "Outpatient Urology & Endocrine Clinical Triage Standard",
+      "url": "http://ijeais.org/wp-content/uploads/2026/7/IJEAIS260708.pdf",
+      "key_markers": "Urinary Frequency or Discomfort, Pelvic/Hormonal/Intimate Strain, Sleep Quality, Symptom Persistence"
+    }
+  ]
+}

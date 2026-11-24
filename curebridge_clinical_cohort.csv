@@ -1,0 +1,501 @@
+patient_id,age,bmi,systolic_bp,fasting_sugar,spo2_pct,sleep_hours,cough_wheeze,breath_shortness,chest_pressure,excess_thirst_fatigue,acid_reflux_bloating,bowel_irregularity,urinary_discomfort,pelvic_hormonal_strain,symptom_weeks,condition_id,condition_name,stage_id
+CB-1001,26,24.7,121,102,95,6.7,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1002,42,22.6,130,91,98,6.4,0,0,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1003,33,29.0,121,139,97,7.0,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1004,44,18.5,108,94,98,7.4,0,0,0,0,2,1,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1005,52,22.3,108,85,97,7.3,0,0,0,0,0,0,2,2,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1006,50,26.3,126,99,90,6.6,3,3,0,0,0,0,0,0,15,0,Respiratory & Airway Health,3
+CB-1007,35,23.3,151,82,98,8.6,0,1,2,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1008,28,34.1,114,155,96,6.9,0,0,0,3,0,0,0,0,13,2,Metabolic & Blood Sugar Balance,3
+CB-1009,34,19.6,112,99,97,6.8,0,0,0,0,3,3,0,0,12,3,Digestive & Gut-Liver Health,3
+CB-1010,33,22.9,107,90,98,7.0,0,0,0,0,0,0,2,1,4,4,Confidential Intimate & Urinary Wellness,2
+CB-1011,53,20.1,112,88,93,9.5,3,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,3
+CB-1012,35,22.2,130,104,97,7.2,0,1,2,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1013,43,26.0,113,109,98,6.9,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1014,57,25.9,125,84,99,5.8,0,0,0,0,1,1,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1015,42,20.4,125,96,97,6.5,0,0,0,0,0,0,3,3,9,4,Confidential Intimate & Urinary Wellness,3
+CB-1016,47,18.5,122,101,97,7.9,2,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1017,45,27.5,140,94,98,8.0,0,2,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1018,54,31.5,124,197,96,8.4,0,0,0,3,0,0,0,0,15,2,Metabolic & Blood Sugar Balance,3
+CB-1019,56,27.5,124,84,97,6.1,0,0,0,0,2,2,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1020,47,18.5,137,94,98,5.7,0,0,0,0,0,0,2,2,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1021,60,20.0,125,96,95,5.6,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1022,38,25.8,127,92,97,5.7,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1023,44,28.2,111,143,98,6.1,0,0,0,2,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1024,54,22.1,121,95,98,8.1,0,0,0,0,1,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1025,34,23.4,106,111,97,8.4,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1026,35,26.8,119,83,95,7.9,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1027,65,21.7,132,88,99,6.8,0,1,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1028,36,30.7,118,128,97,7.0,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1029,65,22.5,119,87,97,6.9,0,0,0,0,2,2,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1030,34,26.9,135,88,97,7.7,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1031,28,25.1,120,87,91,6.8,3,3,0,0,0,0,0,0,10,0,Respiratory & Airway Health,3
+CB-1032,45,23.0,151,103,98,8.3,0,1,2,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1033,45,26.9,117,107,97,8.0,0,0,0,2,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1034,42,25.2,132,76,99,7.7,0,0,0,0,2,2,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1035,63,22.6,115,95,98,8.1,0,0,0,0,0,0,1,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1036,38,22.1,134,102,95,6.8,2,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1037,37,24.5,162,108,98,7.7,0,2,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,3
+CB-1038,34,29.6,106,125,98,7.4,0,0,0,2,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1039,19,28.2,116,92,97,7.2,0,0,0,0,3,2,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1040,26,25.9,114,75,98,6.4,0,0,0,0,0,0,3,3,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1041,42,26.6,122,93,97,7.6,1,1,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1042,62,21.8,147,87,97,6.5,0,1,2,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1043,30,27.1,116,106,99,5.7,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1044,23,28.9,128,88,96,8.6,0,0,0,0,3,2,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1045,19,22.1,119,93,97,7.8,0,0,0,0,0,0,2,2,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1046,51,20.7,106,104,95,6.5,2,2,0,0,0,0,0,0,4,0,Respiratory & Airway Health,2
+CB-1047,34,30.9,131,89,98,7.7,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1048,53,29.9,121,125,96,9.2,0,0,0,2,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1049,48,25.4,106,103,98,5.8,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1050,26,25.2,124,90,99,6.9,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1051,24,20.2,119,88,91,7.7,3,2,0,0,0,0,0,0,8,0,Respiratory & Airway Health,3
+CB-1052,32,24.4,145,91,98,8.0,0,2,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1053,20,29.1,132,124,98,7.5,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1054,46,22.4,121,81,96,7.4,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1055,29,23.8,137,102,97,8.8,0,0,0,0,0,0,3,3,9,4,Confidential Intimate & Urinary Wellness,3
+CB-1056,45,26.2,118,78,97,7.0,1,0,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1057,36,22.6,129,88,95,7.9,0,1,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1058,41,25.4,125,109,98,9.0,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1059,50,21.5,133,95,97,7.3,0,0,0,0,3,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1060,31,18.5,134,110,98,6.2,0,0,0,0,0,0,2,2,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1061,31,30.6,104,83,93,7.3,3,2,0,0,0,0,0,0,9,0,Respiratory & Airway Health,3
+CB-1062,49,25.7,147,97,97,6.5,0,1,3,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1063,38,29.0,113,135,98,6.4,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1064,45,19.5,104,86,98,8.3,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1065,53,26.6,115,96,98,6.3,0,0,0,0,0,0,3,3,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1066,60,22.6,115,88,97,8.2,1,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1067,58,24.8,150,95,97,5.7,0,1,3,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1068,38,26.6,124,111,98,7.9,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1069,33,22.4,122,89,97,6.1,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1070,39,22.6,110,78,98,7.3,0,0,0,0,0,0,2,1,4,4,Confidential Intimate & Urinary Wellness,2
+CB-1071,35,24.0,117,95,90,7.5,3,3,0,0,0,0,0,0,11,0,Respiratory & Airway Health,3
+CB-1072,29,21.8,163,79,97,7.6,0,3,3,0,0,0,0,0,10,1,Cardiovascular & Blood Pressure,3
+CB-1073,32,30.3,112,140,97,7.4,0,0,0,2,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1074,38,28.0,98,102,98,5.1,0,0,0,0,1,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1075,30,26.4,119,101,98,5.0,0,0,0,0,0,0,1,1,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1076,43,23.4,123,83,97,7.0,1,1,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1077,19,21.3,173,86,98,7.7,0,3,3,0,0,0,0,0,9,1,Cardiovascular & Blood Pressure,3
+CB-1078,34,35.1,113,160,96,7.8,0,0,0,3,0,0,0,0,11,2,Metabolic & Blood Sugar Balance,3
+CB-1079,44,23.5,114,96,97,8.3,0,0,0,0,2,2,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1080,30,28.3,123,82,97,7.0,0,0,0,0,0,0,3,2,8,4,Confidential Intimate & Urinary Wellness,3
+CB-1081,19,25.3,135,99,97,7.7,1,0,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1082,29,26.2,127,113,98,7.5,0,0,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1083,37,27.1,107,110,96,6.4,0,0,0,2,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1084,43,24.3,123,79,97,6.5,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1085,24,20.1,132,86,97,9.5,0,0,0,0,0,0,3,2,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1086,50,19.4,113,90,95,7.8,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1087,49,26.8,147,97,97,5.5,0,2,3,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1088,19,30.4,121,128,97,7.0,0,0,0,3,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1089,72,24.8,108,105,97,9.5,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1090,39,22.6,130,94,98,5.7,0,0,0,0,0,0,2,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1091,43,26.8,114,105,97,6.8,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1092,66,24.3,126,91,98,6.7,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1093,28,36.2,123,159,98,7.4,0,0,0,3,0,0,0,0,8,2,Metabolic & Blood Sugar Balance,3
+CB-1094,58,28.3,106,93,97,6.6,0,0,0,0,3,3,0,0,7,3,Digestive & Gut-Liver Health,3
+CB-1095,49,27.1,119,79,98,9.5,0,0,0,0,0,0,3,3,9,4,Confidential Intimate & Urinary Wellness,3
+CB-1096,46,22.7,113,86,95,8.1,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1097,49,26.8,131,93,96,5.9,0,0,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1098,42,35.2,120,191,98,9.2,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,3
+CB-1099,38,23.0,109,86,97,7.8,0,0,0,0,2,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1100,39,24.2,128,85,98,6.8,0,0,0,0,0,0,2,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1101,38,22.1,111,94,97,7.4,2,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1102,58,19.8,172,96,97,6.8,0,3,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,3
+CB-1103,58,29.2,114,125,99,7.1,0,0,0,2,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1104,24,23.3,124,101,98,8.5,0,0,0,0,3,2,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1105,48,24.5,116,106,97,6.0,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1106,24,27.8,118,103,97,7.7,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1107,32,26.4,131,80,96,7.8,0,0,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1108,53,30.1,115,129,97,4.8,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1109,33,25.0,120,84,97,6.8,0,0,0,0,3,2,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1110,44,18.5,117,86,97,6.9,0,0,0,0,0,0,1,1,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1111,43,23.0,120,100,93,8.7,3,3,0,0,0,0,0,0,15,0,Respiratory & Airway Health,3
+CB-1112,59,25.4,158,114,98,9.2,0,3,3,0,0,0,0,0,12,1,Cardiovascular & Blood Pressure,3
+CB-1113,38,25.7,124,111,97,9.4,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1114,34,23.6,108,103,97,9.5,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1115,57,23.5,126,100,96,6.3,0,0,0,0,0,0,2,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1116,20,29.4,118,109,90,6.6,3,2,0,0,0,0,0,0,9,0,Respiratory & Airway Health,3
+CB-1117,62,27.7,127,96,98,7.5,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1118,41,26.4,123,112,98,4.4,0,0,0,2,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1119,53,20.3,127,86,96,6.9,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1120,69,22.1,117,82,98,7.3,0,0,0,0,0,0,1,0,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1121,53,27.2,128,92,97,8.5,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1122,24,25.6,127,84,97,8.8,0,0,2,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1123,42,26.6,120,113,98,5.1,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1124,36,22.6,113,97,98,6.0,0,0,0,0,2,1,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1125,44,24.3,115,95,98,7.3,0,0,0,0,0,0,1,1,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1126,56,23.1,121,105,97,7.6,2,1,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1127,53,22.7,142,84,96,8.4,0,1,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1128,72,29.4,101,129,98,7.0,0,0,0,3,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1129,35,23.7,109,79,99,5.4,0,0,0,0,2,1,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1130,53,26.5,129,93,98,7.0,0,0,0,0,0,0,3,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1131,31,23.0,105,92,91,6.1,3,3,0,0,0,0,0,0,9,0,Respiratory & Airway Health,3
+CB-1132,28,26.4,145,90,98,6.2,0,1,3,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1133,30,33.9,115,179,97,7.3,0,0,0,3,0,0,0,0,13,2,Metabolic & Blood Sugar Balance,3
+CB-1134,48,20.2,128,90,97,8.0,0,0,0,0,1,0,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1135,48,26.3,123,99,97,6.1,0,0,0,0,0,0,2,2,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1136,39,23.4,119,91,90,9.4,3,3,0,0,0,0,0,0,15,0,Respiratory & Airway Health,3
+CB-1137,35,21.9,128,101,96,5.2,0,1,2,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1138,51,28.9,113,125,98,8.9,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1139,48,26.5,120,87,98,5.6,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1140,51,29.3,116,108,98,6.5,0,0,0,0,0,0,1,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1141,29,24.0,131,90,97,6.0,2,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1142,43,26.0,141,104,97,7.4,0,2,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1143,30,30.2,104,136,97,5.0,0,0,0,3,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1144,36,25.1,115,103,98,7.8,0,0,0,0,3,3,0,0,10,3,Digestive & Gut-Liver Health,3
+CB-1145,51,24.1,113,116,98,5.6,0,0,0,0,0,0,1,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1146,19,24.0,116,84,97,7.3,2,1,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1147,42,23.2,133,78,96,7.5,0,1,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1148,24,25.5,112,116,98,8.7,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1149,19,26.4,108,90,97,5.4,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1150,38,20.9,122,105,97,7.8,0,0,0,0,0,0,1,0,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1151,41,25.4,119,84,97,7.0,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1152,52,20.3,172,103,97,8.2,0,3,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,3
+CB-1153,39,28.5,118,138,98,7.7,0,0,0,2,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1154,25,24.0,119,108,97,7.3,0,0,0,0,2,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1155,19,24.3,120,92,97,8.4,0,0,0,0,0,0,3,3,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1156,40,21.8,119,85,91,7.4,3,3,0,0,0,0,0,0,14,0,Respiratory & Airway Health,3
+CB-1157,39,23.5,143,98,97,7.9,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1158,42,28.3,110,141,97,7.4,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1159,38,23.0,121,100,98,6.6,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1160,24,25.5,108,95,97,6.8,0,0,0,0,0,0,2,2,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1161,46,21.9,109,92,95,5.4,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1162,67,25.5,130,101,97,7.7,0,1,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1163,30,34.7,121,199,98,6.3,0,0,0,3,0,0,0,0,13,2,Metabolic & Blood Sugar Balance,3
+CB-1164,40,23.8,112,98,97,7.6,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1165,27,23.8,131,81,97,7.9,0,0,0,0,0,0,2,1,4,4,Confidential Intimate & Urinary Wellness,2
+CB-1166,58,22.2,120,85,95,6.9,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1167,64,26.5,151,100,97,8.5,0,1,2,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1168,49,32.5,100,179,98,6.6,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,3
+CB-1169,27,29.0,128,98,97,6.2,0,0,0,0,2,2,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1170,35,20.7,120,77,98,7.1,0,0,0,0,0,0,3,1,4,4,Confidential Intimate & Urinary Wellness,2
+CB-1171,22,18.5,124,92,95,8.6,3,2,0,0,0,0,0,0,4,0,Respiratory & Airway Health,2
+CB-1172,38,21.0,131,100,97,6.2,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1173,35,29.0,120,128,98,6.7,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1174,53,21.3,110,94,97,8.1,0,0,0,0,1,0,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1175,26,25.4,108,114,98,7.5,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1176,30,23.3,122,110,95,4.9,2,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1177,24,23.6,149,111,99,6.2,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1178,19,26.9,120,115,98,8.0,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1179,43,25.6,121,107,97,7.3,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1180,46,21.7,115,103,98,5.8,0,0,0,0,0,0,3,2,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1181,35,27.4,119,100,95,6.4,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1182,77,24.3,143,90,98,7.8,0,2,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1183,46,34.6,110,178,97,8.4,0,0,0,3,0,0,0,0,12,2,Metabolic & Blood Sugar Balance,3
+CB-1184,34,25.4,121,92,96,6.2,0,0,0,0,2,2,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1185,45,25.8,110,85,98,7.3,0,0,0,0,0,0,3,2,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1186,33,28.4,120,96,97,6.0,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1187,47,23.7,170,95,97,8.4,0,2,3,0,0,0,0,0,14,1,Cardiovascular & Blood Pressure,3
+CB-1188,36,25.2,114,112,99,8.2,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1189,49,24.3,121,97,98,8.3,0,0,0,0,2,1,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1190,36,20.6,108,87,97,6.9,0,0,0,0,0,0,2,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1191,38,25.0,115,99,95,7.5,3,2,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1192,70,26.4,151,97,96,6.9,0,1,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1193,19,27.0,124,110,97,7.3,0,0,0,2,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1194,34,26.0,105,88,98,8.6,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1195,45,25.6,124,117,96,6.5,0,0,0,0,0,0,2,1,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1196,37,22.8,118,98,97,8.4,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1197,72,23.3,143,97,98,8.9,0,1,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1198,35,25.0,107,117,96,8.0,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1199,35,26.0,99,80,97,5.9,0,0,0,0,3,3,0,0,12,3,Digestive & Gut-Liver Health,3
+CB-1200,44,21.7,116,85,98,7.2,0,0,0,0,0,0,2,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1201,62,21.8,121,99,95,6.0,3,2,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1202,44,22.1,170,96,97,5.0,0,2,3,0,0,0,0,0,8,1,Cardiovascular & Blood Pressure,3
+CB-1203,40,29.6,117,135,98,7.6,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1204,44,25.9,122,98,98,6.5,0,0,0,0,2,1,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1205,78,22.4,103,99,98,8.5,0,0,0,0,0,0,2,0,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1206,28,20.7,116,105,95,7.7,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1207,38,23.6,126,75,96,7.2,0,1,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1208,45,35.5,129,163,97,7.4,0,0,0,3,0,0,0,0,11,2,Metabolic & Blood Sugar Balance,3
+CB-1209,42,25.0,104,79,97,6.8,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1210,40,24.4,120,101,96,5.7,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1211,64,24.5,117,104,95,6.3,2,2,0,0,0,0,0,0,5,0,Respiratory & Airway Health,2
+CB-1212,50,22.4,149,94,98,6.8,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1213,56,27.1,132,108,98,7.1,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1214,33,18.5,113,93,97,9.2,0,0,0,0,3,1,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1215,41,24.9,121,102,96,6.4,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1216,38,25.7,123,95,95,5.5,3,1,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1217,22,26.5,166,83,98,8.0,0,3,3,0,0,0,0,0,12,1,Cardiovascular & Blood Pressure,3
+CB-1218,73,36.2,127,201,98,6.3,0,0,0,3,0,0,0,0,15,2,Metabolic & Blood Sugar Balance,3
+CB-1219,34,26.2,123,99,98,6.6,0,0,0,0,3,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1220,33,24.7,131,86,98,6.1,0,0,0,0,0,0,3,2,12,4,Confidential Intimate & Urinary Wellness,3
+CB-1221,57,29.1,113,96,95,7.8,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1222,47,22.9,138,86,97,6.5,0,2,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1223,42,29.7,129,139,95,7.4,0,0,0,3,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1224,53,25.4,120,105,97,7.3,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1225,28,26.4,112,91,98,6.6,0,0,0,0,0,0,1,1,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1226,53,21.4,113,90,97,6.4,2,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1227,40,25.6,156,91,97,7.5,0,3,3,0,0,0,0,0,13,1,Cardiovascular & Blood Pressure,3
+CB-1228,48,36.0,115,198,97,7.4,0,0,0,3,0,0,0,0,14,2,Metabolic & Blood Sugar Balance,3
+CB-1229,39,18.9,118,84,98,6.9,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1230,22,19.8,128,90,97,7.7,0,0,0,0,0,0,2,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1231,51,25.9,118,89,95,6.9,3,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1232,19,24.1,150,82,97,4.6,0,1,3,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1233,42,27.9,109,136,98,7.9,0,0,0,3,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1234,37,22.2,119,106,97,5.7,0,0,0,0,3,3,0,0,11,3,Digestive & Gut-Liver Health,3
+CB-1235,44,24.5,117,106,96,6.4,0,0,0,0,0,0,3,3,9,4,Confidential Intimate & Urinary Wellness,3
+CB-1236,33,30.5,120,89,93,7.2,3,3,0,0,0,0,0,0,13,0,Respiratory & Airway Health,3
+CB-1237,53,29.3,150,98,98,8.6,0,2,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1238,42,26.6,127,105,97,7.6,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1239,41,26.0,105,86,97,8.5,0,0,0,0,2,1,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1240,39,27.6,101,106,96,6.9,0,0,0,0,0,0,2,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1241,19,25.5,112,95,91,9.5,3,3,0,0,0,0,0,0,14,0,Respiratory & Airway Health,3
+CB-1242,38,19.6,147,104,97,8.8,0,1,3,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1243,28,27.8,130,126,98,6.0,0,0,0,2,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1244,61,24.5,119,81,97,8.0,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1245,36,22.0,124,91,97,8.5,0,0,0,0,0,0,2,1,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1246,19,22.6,128,75,97,6.9,1,1,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1247,20,23.9,128,91,96,9.2,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1248,52,25.7,130,110,97,4.0,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1249,22,27.7,124,89,97,7.1,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1250,51,27.1,104,95,97,7.1,0,0,0,0,0,0,3,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1251,32,23.9,110,83,95,6.1,3,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1252,58,21.1,131,97,98,6.9,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1253,66,29.2,119,138,97,7.7,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1254,56,21.0,115,95,99,9.5,0,0,0,0,3,1,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1255,38,24.4,117,92,98,6.1,0,0,0,0,0,0,2,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1256,50,24.0,99,92,95,6.7,2,1,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1257,41,25.1,156,83,98,8.5,0,3,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,3
+CB-1258,27,26.8,120,110,98,8.7,0,0,0,2,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1259,42,24.1,113,88,97,6.8,0,0,0,0,2,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1260,21,25.5,113,90,98,6.0,0,0,0,0,0,0,3,2,8,4,Confidential Intimate & Urinary Wellness,3
+CB-1261,34,24.8,124,98,95,7.0,3,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1262,38,21.2,139,102,96,6.3,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1263,29,29.1,120,141,97,7.4,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1264,62,27.3,128,102,96,8.1,0,0,0,0,2,1,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1265,40,21.0,108,97,98,8.5,0,0,0,0,0,0,2,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1266,20,25.2,123,92,97,6.9,2,0,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1267,65,23.8,145,90,98,7.5,0,1,3,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1268,69,25.5,111,112,98,7.7,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1269,28,18.5,122,80,96,8.5,0,0,0,0,2,1,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1270,43,25.9,122,81,98,8.1,0,0,0,0,0,0,3,2,14,4,Confidential Intimate & Urinary Wellness,3
+CB-1271,44,25.9,105,95,95,6.9,2,2,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1272,46,26.3,148,104,97,7.3,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1273,47,28.1,112,126,98,6.2,0,0,0,2,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1274,53,25.3,129,90,99,5.2,0,0,0,0,3,3,0,0,15,3,Digestive & Gut-Liver Health,3
+CB-1275,48,25.3,123,90,97,7.5,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1276,50,23.0,121,75,97,7.4,1,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1277,36,18.7,127,87,97,4.8,0,0,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1278,32,28.1,102,125,99,6.6,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1279,32,20.9,114,87,97,6.0,0,0,0,0,2,1,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1280,19,18.5,133,96,97,7.7,0,0,0,0,0,0,2,2,4,4,Confidential Intimate & Urinary Wellness,2
+CB-1281,41,29.2,118,99,95,7.6,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1282,19,24.5,134,86,99,8.2,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1283,47,30.4,118,124,98,6.6,0,0,0,2,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1284,66,20.8,108,92,98,7.7,0,0,0,0,2,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1285,31,23.5,124,106,97,8.7,0,0,0,0,0,0,3,2,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1286,39,29.7,121,106,95,7.6,2,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1287,30,28.0,159,104,97,6.8,0,3,3,0,0,0,0,0,13,1,Cardiovascular & Blood Pressure,3
+CB-1288,64,32.6,113,153,97,8.7,0,0,0,3,0,0,0,0,14,2,Metabolic & Blood Sugar Balance,3
+CB-1289,42,26.3,111,106,98,8.2,0,0,0,0,2,2,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1290,44,25.3,109,84,98,6.3,0,0,0,0,0,0,2,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1291,50,25.3,121,92,97,7.9,1,0,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1292,46,19.4,132,90,98,6.9,0,1,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1293,46,32.6,122,166,98,7.8,0,0,0,3,0,0,0,0,9,2,Metabolic & Blood Sugar Balance,3
+CB-1294,44,23.6,117,92,97,6.7,0,0,0,0,1,1,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1295,47,26.9,135,102,98,8.2,0,0,0,0,0,0,2,2,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1296,30,24.9,132,109,95,8.2,2,2,0,0,0,0,0,0,4,0,Respiratory & Airway Health,2
+CB-1297,57,25.3,133,107,97,6.5,0,1,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1298,42,35.3,127,152,96,8.1,0,0,0,3,0,0,0,0,9,2,Metabolic & Blood Sugar Balance,3
+CB-1299,36,28.9,126,97,98,8.5,0,0,0,0,1,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1300,45,25.8,128,95,97,7.4,0,0,0,0,0,0,2,1,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1301,40,22.5,120,86,97,7.8,2,1,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1302,45,24.3,151,90,98,6.2,0,2,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1303,30,25.5,132,105,97,7.9,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1304,40,21.6,121,93,98,6.0,0,0,0,0,2,1,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1305,61,20.6,115,95,98,6.8,0,0,0,0,0,0,1,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1306,53,28.0,118,82,93,8.2,3,3,0,0,0,0,0,0,14,0,Respiratory & Airway Health,3
+CB-1307,39,26.7,127,94,97,8.2,0,1,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1308,48,29.8,122,133,97,8.0,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1309,36,26.7,116,102,97,5.2,0,0,0,0,2,2,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1310,42,27.6,119,108,97,8.2,0,0,0,0,0,0,3,3,13,4,Confidential Intimate & Urinary Wellness,3
+CB-1311,32,22.7,117,95,91,8.4,3,3,0,0,0,0,0,0,12,0,Respiratory & Airway Health,3
+CB-1312,63,29.5,151,87,97,7.9,0,2,3,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1313,76,35.0,130,187,99,8.9,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,3
+CB-1314,31,23.1,125,92,97,6.5,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1315,54,28.1,119,107,98,7.4,0,0,0,0,0,0,3,3,8,4,Confidential Intimate & Urinary Wellness,3
+CB-1316,33,20.7,138,94,93,8.1,3,2,0,0,0,0,0,0,11,0,Respiratory & Airway Health,3
+CB-1317,31,25.7,133,75,98,7.3,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1318,43,25.7,109,116,98,7.4,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1319,63,24.2,113,82,98,7.4,0,0,0,0,3,3,0,0,7,3,Digestive & Gut-Liver Health,3
+CB-1320,54,19.6,120,115,98,7.0,0,0,0,0,0,0,1,1,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1321,30,18.5,113,100,95,6.4,2,1,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1322,50,23.3,165,82,98,4.2,0,3,3,0,0,0,0,0,14,1,Cardiovascular & Blood Pressure,3
+CB-1323,23,33.4,114,185,97,8.7,0,0,0,3,0,0,0,0,15,2,Metabolic & Blood Sugar Balance,3
+CB-1324,59,21.8,110,83,97,6.3,0,0,0,0,3,2,0,0,8,3,Digestive & Gut-Liver Health,3
+CB-1325,59,23.1,121,87,96,7.5,0,0,0,0,0,0,2,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1326,58,28.9,106,82,95,6.9,3,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1327,38,26.2,150,97,98,6.3,0,2,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1328,44,25.7,126,116,97,7.7,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1329,61,22.8,114,89,96,7.3,0,0,0,0,1,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1330,57,22.5,118,104,96,5.8,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1331,20,18.5,115,97,97,6.7,2,1,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1332,34,24.4,127,80,97,7.6,0,1,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1333,31,25.9,131,115,98,7.0,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1334,20,27.7,115,90,97,5.4,0,0,0,0,3,2,0,0,11,3,Digestive & Gut-Liver Health,3
+CB-1335,36,22.8,109,90,98,8.2,0,0,0,0,0,0,2,1,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1336,41,22.0,106,84,90,6.9,3,3,0,0,0,0,0,0,12,0,Respiratory & Airway Health,3
+CB-1337,25,18.5,165,99,97,6.9,0,3,3,0,0,0,0,0,13,1,Cardiovascular & Blood Pressure,3
+CB-1338,74,34.9,124,183,97,7.1,0,0,0,3,0,0,0,0,9,2,Metabolic & Blood Sugar Balance,3
+CB-1339,63,21.9,129,82,99,6.7,0,0,0,0,3,3,0,0,9,3,Digestive & Gut-Liver Health,3
+CB-1340,19,20.0,111,87,97,4.5,0,0,0,0,0,0,1,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1341,62,22.5,112,90,97,7.5,1,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1342,26,21.3,171,84,97,5.8,0,3,3,0,0,0,0,0,9,1,Cardiovascular & Blood Pressure,3
+CB-1343,32,26.2,119,111,98,7.1,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1344,53,18.5,118,87,98,7.7,0,0,0,0,3,2,0,0,7,3,Digestive & Gut-Liver Health,3
+CB-1345,19,22.1,124,86,97,6.5,0,0,0,0,0,0,3,3,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1346,49,29.0,113,87,95,6.9,2,1,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1347,65,21.4,141,85,98,6.1,0,1,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1348,46,26.6,121,108,98,6.1,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1349,41,22.5,110,93,97,6.2,0,0,0,0,1,1,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1350,73,22.1,106,76,98,5.3,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1351,49,30.6,117,78,97,7.2,1,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1352,54,25.1,131,82,99,8.7,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1353,41,26.3,117,107,98,8.5,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1354,47,20.3,111,90,98,6.9,0,0,0,0,2,1,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1355,62,18.5,114,85,98,7.3,0,0,0,0,0,0,3,2,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1356,41,23.2,128,94,97,6.9,1,0,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1357,45,18.6,144,95,98,8.3,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1358,29,26.8,128,116,97,7.2,0,0,0,2,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1359,31,24.6,131,87,97,7.5,0,0,0,0,1,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1360,60,24.4,131,83,97,4.8,0,0,0,0,0,0,2,1,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1361,61,18.5,129,96,93,6.1,3,3,0,0,0,0,0,0,7,0,Respiratory & Airway Health,3
+CB-1362,30,22.7,140,95,99,7.9,0,2,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1363,52,29.4,115,140,98,7.5,0,0,0,2,0,0,0,0,5,2,Metabolic & Blood Sugar Balance,2
+CB-1364,57,30.3,120,84,96,7.5,0,0,0,0,2,2,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1365,32,19.5,132,102,97,7.3,0,0,0,0,0,0,3,2,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1366,32,27.1,119,99,95,7.4,3,2,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1367,28,28.4,134,107,98,7.1,0,0,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1368,39,30.8,108,127,96,6.5,0,0,0,3,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1369,32,29.3,114,94,98,7.3,0,0,0,0,2,1,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1370,30,22.4,117,93,99,8.1,0,0,0,0,0,0,2,2,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1371,19,26.4,120,105,93,6.4,3,3,0,0,0,0,0,0,15,0,Respiratory & Airway Health,3
+CB-1372,56,24.3,166,79,96,7.5,0,3,3,0,0,0,0,0,13,1,Cardiovascular & Blood Pressure,3
+CB-1373,38,33.4,111,195,97,8.4,0,0,0,3,0,0,0,0,13,2,Metabolic & Blood Sugar Balance,3
+CB-1374,48,18.5,124,94,97,9.2,0,0,0,0,2,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1375,47,19.7,128,78,97,6.9,0,0,0,0,0,0,1,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1376,46,27.2,128,87,95,7.4,3,2,0,0,0,0,0,0,4,0,Respiratory & Airway Health,2
+CB-1377,42,25.4,142,97,98,9.1,0,2,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1378,20,32.6,114,186,97,7.0,0,0,0,3,0,0,0,0,9,2,Metabolic & Blood Sugar Balance,3
+CB-1379,46,18.5,99,89,97,7.4,0,0,0,0,1,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1380,56,24.3,123,93,99,7.8,0,0,0,0,0,0,2,2,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1381,51,23.6,125,103,95,8.1,2,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1382,58,27.7,140,75,97,7.1,0,2,2,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,2
+CB-1383,49,33.1,118,163,96,7.7,0,0,0,3,0,0,0,0,13,2,Metabolic & Blood Sugar Balance,3
+CB-1384,29,20.1,123,89,97,7.8,0,0,0,0,1,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1385,33,26.1,112,105,97,7.2,0,0,0,0,0,0,3,2,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1386,69,22.5,128,110,95,6.6,2,1,0,0,0,0,0,0,5,0,Respiratory & Airway Health,2
+CB-1387,33,20.5,130,111,96,6.1,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1388,71,28.8,124,142,97,7.0,0,0,0,2,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1389,51,26.1,116,114,97,6.6,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1390,30,18.9,117,95,97,6.6,0,0,0,0,0,0,2,0,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1391,45,21.7,101,103,95,7.3,2,1,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1392,19,26.1,127,97,96,8.0,0,0,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1393,34,25.4,135,117,97,7.3,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1394,38,23.9,128,78,98,6.9,0,0,0,0,3,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1395,74,19.7,129,103,97,8.2,0,0,0,0,0,0,1,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1396,30,21.8,135,93,91,6.4,3,3,0,0,0,0,0,0,10,0,Respiratory & Airway Health,3
+CB-1397,49,24.3,150,86,98,8.3,0,1,2,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1398,49,29.0,119,140,97,5.4,0,0,0,3,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1399,48,25.3,127,86,98,6.3,0,0,0,0,2,1,0,0,6,3,Digestive & Gut-Liver Health,2
+CB-1400,28,23.7,112,82,98,7.4,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1401,48,23.1,115,91,93,7.9,3,2,0,0,0,0,0,0,9,0,Respiratory & Airway Health,3
+CB-1402,40,24.8,163,99,98,6.8,0,3,3,0,0,0,0,0,15,1,Cardiovascular & Blood Pressure,3
+CB-1403,49,29.7,117,125,97,8.2,0,0,0,3,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1404,38,18.5,112,75,98,7.4,0,0,0,0,2,1,0,0,3,3,Digestive & Gut-Liver Health,2
+CB-1405,26,20.4,117,87,97,7.7,0,0,0,0,0,0,2,2,5,4,Confidential Intimate & Urinary Wellness,2
+CB-1406,42,24.8,120,77,97,6.8,2,0,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1407,39,23.5,139,108,96,5.4,0,2,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1408,25,30.6,125,137,96,7.3,0,0,0,3,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1409,30,31.2,124,118,98,6.6,0,0,0,0,2,1,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1410,40,25.9,119,83,97,5.7,0,0,0,0,0,0,3,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1411,40,22.5,114,102,97,6.6,2,1,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1412,42,22.4,148,76,98,6.5,0,2,3,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1413,57,25.6,121,106,98,6.1,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1414,47,23.7,123,100,98,7.3,0,0,0,0,2,1,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1415,48,22.3,121,85,98,8.5,0,0,0,0,0,0,1,0,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1416,39,20.7,107,92,95,7.2,3,1,0,0,0,0,0,0,5,0,Respiratory & Airway Health,2
+CB-1417,30,19.7,131,75,98,6.3,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1418,66,30.7,117,133,97,7.9,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1419,54,26.8,119,109,98,8.5,0,0,0,0,3,3,0,0,12,3,Digestive & Gut-Liver Health,3
+CB-1420,58,19.7,115,90,98,8.1,0,0,0,0,0,0,3,3,8,4,Confidential Intimate & Urinary Wellness,3
+CB-1421,68,25.7,120,99,90,8.1,3,3,0,0,0,0,0,0,11,0,Respiratory & Airway Health,3
+CB-1422,43,24.4,148,93,98,9.5,0,1,3,0,0,0,0,0,5,1,Cardiovascular & Blood Pressure,2
+CB-1423,37,31.9,110,191,98,6.6,0,0,0,3,0,0,0,0,11,2,Metabolic & Blood Sugar Balance,3
+CB-1424,20,24.5,116,102,98,6.6,0,0,0,0,1,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1425,28,26.0,105,88,97,8.3,0,0,0,0,0,0,2,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1426,47,23.4,123,106,91,5.5,3,3,0,0,0,0,0,0,11,0,Respiratory & Airway Health,3
+CB-1427,19,21.3,156,97,96,7.0,0,3,3,0,0,0,0,0,9,1,Cardiovascular & Blood Pressure,3
+CB-1428,57,29.0,123,138,96,8.2,0,0,0,3,0,0,0,0,6,2,Metabolic & Blood Sugar Balance,2
+CB-1429,39,22.1,110,114,97,9.5,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1430,56,21.4,107,92,97,7.7,0,0,0,0,0,0,1,1,2,4,Confidential Intimate & Urinary Wellness,1
+CB-1431,63,26.6,120,111,95,7.1,3,1,0,0,0,0,0,0,4,0,Respiratory & Airway Health,2
+CB-1432,44,27.2,140,86,99,7.9,0,1,3,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1433,34,25.5,127,108,96,8.7,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1434,49,25.0,116,81,98,6.4,0,0,0,0,1,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1435,65,24.1,123,100,98,7.4,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1436,19,24.3,116,86,91,8.5,3,2,0,0,0,0,0,0,10,0,Respiratory & Airway Health,3
+CB-1437,46,24.0,149,94,98,8.6,0,2,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1438,19,30.4,107,139,97,7.7,0,0,0,2,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1439,19,25.9,102,93,96,6.9,0,0,0,0,1,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1440,39,22.5,109,104,97,6.4,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1441,35,25.6,119,80,97,7.4,1,0,0,0,0,0,0,0,2,0,Respiratory & Airway Health,1
+CB-1442,47,28.7,145,85,98,7.5,0,1,2,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1443,37,29.2,120,140,96,7.3,0,0,0,2,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,2
+CB-1444,31,22.3,117,85,97,7.4,0,0,0,0,1,0,0,0,2,3,Digestive & Gut-Liver Health,1
+CB-1445,51,31.7,118,96,97,7.4,0,0,0,0,0,0,3,3,11,4,Confidential Intimate & Urinary Wellness,3
+CB-1446,38,23.5,125,98,90,6.0,3,3,0,0,0,0,0,0,10,0,Respiratory & Airway Health,3
+CB-1447,40,27.2,135,108,98,5.7,0,0,1,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1448,41,35.3,116,193,97,7.7,0,0,0,3,0,0,0,0,10,2,Metabolic & Blood Sugar Balance,3
+CB-1449,60,23.2,125,93,98,6.8,0,0,0,0,2,0,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1450,61,23.7,117,84,97,7.8,0,0,0,0,0,0,3,2,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1451,51,26.1,117,87,97,6.1,1,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1452,58,22.4,164,91,97,6.1,0,3,3,0,0,0,0,0,15,1,Cardiovascular & Blood Pressure,3
+CB-1453,30,26.9,111,110,97,7.5,0,0,0,1,0,0,0,0,3,2,Metabolic & Blood Sugar Balance,1
+CB-1454,57,22.1,117,89,96,7.7,0,0,0,0,2,1,0,0,1,3,Digestive & Gut-Liver Health,1
+CB-1455,44,23.7,119,75,98,7.7,0,0,0,0,0,0,2,1,1,4,Confidential Intimate & Urinary Wellness,1
+CB-1456,19,22.4,112,92,95,8.5,2,2,0,0,0,0,0,0,6,0,Respiratory & Airway Health,2
+CB-1457,19,24.1,150,92,97,6.6,0,2,2,0,0,0,0,0,6,1,Cardiovascular & Blood Pressure,2
+CB-1458,57,27.2,118,106,97,7.1,0,0,0,1,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1459,59,25.6,124,91,96,6.8,0,0,0,0,2,2,0,0,4,3,Digestive & Gut-Liver Health,2
+CB-1460,59,18.5,99,88,98,5.6,0,0,0,0,0,0,3,3,14,4,Confidential Intimate & Urinary Wellness,3
+CB-1461,55,24.1,117,77,97,7.1,1,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,1
+CB-1462,30,24.2,132,82,96,7.3,0,0,2,0,0,0,0,0,1,1,Cardiovascular & Blood Pressure,1
+CB-1463,30,27.8,123,136,98,7.6,0,0,0,3,0,0,0,0,4,2,Metabolic & Blood Sugar Balance,2
+CB-1464,57,26.1,122,90,97,7.1,0,0,0,0,2,2,0,0,7,3,Digestive & Gut-Liver Health,2
+CB-1465,60,22.1,115,82,97,5.3,0,0,0,0,0,0,2,2,6,4,Confidential Intimate & Urinary Wellness,2
+CB-1466,57,22.3,112,86,95,7.2,2,1,0,0,0,0,0,0,5,0,Respiratory & Airway Health,2
+CB-1467,55,27.4,143,97,98,7.1,0,1,2,0,0,0,0,0,4,1,Cardiovascular & Blood Pressure,2
+CB-1468,64,26.0,121,115,98,9.5,0,0,0,2,0,0,0,0,2,2,Metabolic & Blood Sugar Balance,1
+CB-1469,34,21.7,116,89,98,6.6,0,0,0,0,1,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1470,23,18.5,121,93,98,6.1,0,0,0,0,0,0,2,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1471,41,23.1,131,84,95,8.5,3,2,0,0,0,0,0,0,5,0,Respiratory & Airway Health,2
+CB-1472,41,21.7,128,85,97,8.1,0,1,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1473,21,26.9,127,114,96,6.4,0,0,0,2,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1474,34,22.0,113,99,98,7.0,0,0,0,0,3,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1475,55,26.9,127,107,98,8.8,0,0,0,0,0,0,2,1,7,4,Confidential Intimate & Urinary Wellness,2
+CB-1476,30,25.3,133,96,95,7.1,2,1,0,0,0,0,0,0,7,0,Respiratory & Airway Health,2
+CB-1477,19,23.9,131,77,98,7.9,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1478,34,28.0,131,140,98,6.6,0,0,0,2,0,0,0,0,7,2,Metabolic & Blood Sugar Balance,2
+CB-1479,26,24.2,126,98,96,9.2,0,0,0,0,2,0,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1480,52,27.5,126,79,97,5.7,0,0,0,0,0,0,1,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1481,57,24.8,114,96,91,8.1,3,3,0,0,0,0,0,0,9,0,Respiratory & Airway Health,3
+CB-1482,46,23.3,126,97,99,8.5,0,0,1,0,0,0,0,0,3,1,Cardiovascular & Blood Pressure,1
+CB-1483,34,33.7,127,189,97,9.0,0,0,0,3,0,0,0,0,11,2,Metabolic & Blood Sugar Balance,3
+CB-1484,22,26.7,113,93,97,7.4,0,0,0,0,3,3,0,0,11,3,Digestive & Gut-Liver Health,3
+CB-1485,59,26.4,111,82,98,6.4,0,0,0,0,0,0,2,1,3,4,Confidential Intimate & Urinary Wellness,2
+CB-1486,57,23.7,119,108,95,7.4,3,1,0,0,0,0,0,0,3,0,Respiratory & Airway Health,2
+CB-1487,39,27.1,150,75,98,6.9,0,2,3,0,0,0,0,0,7,1,Cardiovascular & Blood Pressure,2
+CB-1488,43,27.1,119,116,97,8.2,0,0,0,1,0,0,0,0,1,2,Metabolic & Blood Sugar Balance,1
+CB-1489,58,29.0,125,103,97,6.0,0,0,0,0,2,1,0,0,5,3,Digestive & Gut-Liver Health,2
+CB-1490,32,24.3,101,94,98,5.6,0,0,0,0,0,0,3,3,12,4,Confidential Intimate & Urinary Wellness,3
+CB-1491,56,25.4,118,111,97,7.4,1,1,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1492,25,24.6,135,97,97,5.6,0,0,1,0,0,0,0,0,2,1,Cardiovascular & Blood Pressure,1
+CB-1493,54,35.4,122,177,97,6.7,0,0,0,3,0,0,0,0,15,2,Metabolic & Blood Sugar Balance,3
+CB-1494,19,20.5,111,80,96,7.6,0,0,0,0,1,1,0,0,3,3,Digestive & Gut-Liver Health,1
+CB-1495,23,25.3,134,97,98,5.8,0,0,0,0,0,0,1,0,3,4,Confidential Intimate & Urinary Wellness,1
+CB-1496,39,21.2,115,96,97,6.3,1,0,0,0,0,0,0,0,1,0,Respiratory & Airway Health,1
+CB-1497,35,26.8,172,111,98,8.3,0,2,3,0,0,0,0,0,13,1,Cardiovascular & Blood Pressure,3
+CB-1498,59,32.6,127,188,97,8.0,0,0,0,3,0,0,0,0,10,2,Metabolic & Blood Sugar Balance,3
+CB-1499,33,18.5,111,94,98,7.1,0,0,0,0,3,3,0,0,11,3,Digestive & Gut-Liver Health,3
+CB-1500,40,23.6,122,90,99,8.0,0,0,0,0,0,0,2,1,4,4,Confidential Intimate & Urinary Wellness,2
